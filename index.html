@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Light D&D: Руководство для ГМ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -359,6 +359,10 @@
           border-radius: 0 0 4px 0;
         }
 
+         section[id] {
+            scroll-margin-top: 200px; /* Учитываем высоту header */
+        }
+
         @media (max-width: 768px) {
           .quick-nav {
             display: none;
@@ -399,14 +403,16 @@
         <h2><i class="fas fa-home"></i> Введение и концепция Light D&D</h2>
         <div class="rule-card">
             <h3><i class="fas fa-info-circle"></i> О системе</h3>
-            <p>Упрощённые правила "Light D&D" предназначены для односессионной игры с новичками. Всего 15 минут на объяснение правил и 3.5 часа на игру.</p>
+            <p>Упрощённые правила "Light D&D" предназначены для односессионной игры с новичками. Всего 15 минут на
+                объяснение правил и 3.5 часа на игру.</p>
 
             <div class="tip">
                 <p>Используйте предсозданных персонажей, стандартные кубики (d20 и d6), бумагу и карандаши.</p>
             </div>
 
             <div class="warning">
-                <p>Главная задача ГМа — сохранить ощущение свободы, сюжетность и интересные взаимодействия, несмотря на упрощённые правила.</p>
+                <p>Главная задача ГМа — сохранить ощущение свободы, сюжетность и интересные взаимодействия, несмотря на
+                    упрощённые правила.</p>
             </div>
         </div>
     </section>
@@ -417,7 +423,8 @@
         <div class="rule-card">
             <h3><i class="fas fa-dice"></i> Кубики</h3>
             <ul>
-                <li><strong class="dice-formula">d20</strong>: для всех проверок (атаки, спасброски, навыки, инициатива)</li>
+                <li><strong class="dice-formula">d20</strong>: для всех проверок (атаки, спасброски, навыки, инициатива)
+                </li>
                 <li><strong class="dice-formula">d6</strong>: для урона, исцеления, эффектов (зелья и т.д.)</li>
             </ul>
         </div>
@@ -430,13 +437,21 @@
                 </div>
                 <div class="accordion-content">
                     <ul>
-                        <li><strong>Проверка (Check)</strong>: <span class="dice-formula">d20 + модификатор</span> vs DC. Если ≥ DC — успех.</li>
-                        <li><strong>Спасбросок (Saving Throw)</strong>: аналогично проверке, но против угроз (ловушки, яды, магия).</li>
-                        <li><strong>Контест</strong>: оба бросают <span class="dice-formula">d20 + модификаторы</span>. Побеждает больший результат.</li>
+                        <li><strong>Проверка (Check)</strong>: <span class="dice-formula">d20 + модификатор</span> vs
+                            DC. Если ≥ DC — успех.
+                        </li>
+                        <li><strong>Спасбросок (Saving Throw)</strong>: аналогично проверке, но против угроз (ловушки,
+                            яды, магия).
+                        </li>
+                        <li><strong>Контест</strong>: оба бросают <span class="dice-formula">d20 + модификаторы</span>.
+                            Побеждает больший результат.
+                        </li>
                     </ul>
 
                     <div class="example">
-                        <p><strong>Проверка навыка:</strong> Игрок хочет перепрыгнуть яму. ГМ устанавливает DC 15 (Средне). Игрок бросает <span class="dice-formula">d20 + модификатор Силы</span>. Если результат ≥15 — успех.</p>
+                        <p><strong>Проверка навыка:</strong> Игрок хочет перепрыгнуть яму. ГМ устанавливает DC 15
+                            (Средне). Игрок бросает <span class="dice-formula">d20 + модификатор Силы</span>. Если
+                            результат ≥15 — успех.</p>
                     </div>
                 </div>
             </div>
@@ -452,7 +467,9 @@
             <p>+2 к броску, если персонаж владеет проверкой или спасброском.</p>
 
             <div class="example">
-                <p>Персонаж владеет навыком Скрытность (Stealth). Его модификатор Ловкости +2. При проверке Скрытности он бросает <span class="dice-formula">d20 + 2 (DEX) + 2 (Владение)</span> = <span class="dice-formula">d20 + 4</span>.</p>
+                <p>Персонаж владеет навыком Скрытность (Stealth). Его модификатор Ловкости +2. При проверке Скрытности
+                    он бросает <span class="dice-formula">d20 + 2 (DEX) + 2 (Владение)</span> = <span
+                            class="dice-formula">d20 + 4</span>.</p>
             </div>
         </div>
 
@@ -496,7 +513,8 @@
             </table>
 
             <div class="tip">
-                <p>Можно варьировать DC на 2-4 пункта в зависимости от ситуации, но старайтесь держаться базовых чисел.</p>
+                <p>Можно варьировать DC на 2-4 пункта в зависимости от ситуации, но старайтесь держаться базовых
+                    чисел.</p>
             </div>
         </div>
     </section>
@@ -510,7 +528,8 @@
             <p>Результаты упорядочиваются от большего к меньшему. При равенстве — переброс или договорённость.</p>
 
             <div class="example">
-                <p><strong>Пример:</strong> Игрок бросает <span class="dice-formula">d20 + 2 (DEX)</span> = 15. Враг бросает <span class="dice-formula">d20 + 1</span> = 10. Игрок ходит первым.</p>
+                <p><strong>Пример:</strong> Игрок бросает <span class="dice-formula">d20 + 2 (DEX)</span> = 15. Враг
+                    бросает <span class="dice-formula">d20 + 1</span> = 10. Игрок ходит первым.</p>
             </div>
         </div>
 
@@ -537,14 +556,17 @@
 
         <div class="rule-card">
             <h3><i class="fas fa-shield-alt"></i> Класс Брони (AC) и атака</h3>
-            <p><strong>AC</strong> (Класс Брони) — защита персонажа. Атака попадает, если <span class="dice-formula">d20 + бонус атаки ≥ AC</span>.</p>
+            <p><strong>AC</strong> (Класс Брони) — защита персонажа. Атака попадает, если <span class="dice-formula">d20 + бонус атаки ≥ AC</span>.
+            </p>
 
             <div class="example">
-                <p>Игрок атакует врага с AC 14. Бросает <span class="dice-formula">d20 + 5 (атака)</span> = 18. Попадание! Затем бросает урон: <span class="dice-formula">1d6 + 3</span> = 5 урона.</p>
+                <p>Игрок атакует врага с AC 14. Бросает <span class="dice-formula">d20 + 5 (атака)</span> = 18.
+                    Попадание! Затем бросает урон: <span class="dice-formula">1d6 + 3</span> = 5 урона.</p>
             </div>
 
             <div class="tip">
-                <p>Упрощение: можно сделать весь урон <span class="dice-formula">1d6</span> без модификаторов для новичков.</p>
+                <p>Упрощение: можно сделать весь урон <span class="dice-formula">1d6</span> без модификаторов для
+                    новичков.</p>
             </div>
         </div>
 
@@ -553,7 +575,8 @@
             <p>При падении HP до 0:</p>
             <ul>
                 <li><strong>Упрощённо:</strong> персонаж выведен из боя.</li>
-                <li>Союзник может помочь: действие + проверка <span class="dice-formula">Medicine или CON DC 10</span>.</li>
+                <li>Союзник может помочь: действие + проверка <span class="dice-formula">Medicine или CON DC 10</span>.
+                </li>
                 <li>Успех — возвращение с 1 HP. Провал — остаётся выведенным.</li>
             </ul>
 
@@ -617,7 +640,8 @@
                     <div class="skill-body">
                         <p>Чувствовать обман, понимать мотивы, распознавать эмоции.</p>
                         <div class="skill-example">
-                            <strong>Пример:</strong> Распознать ложь торговца (DC 14), понять истинные намерения NPC (DC 16)
+                            <strong>Пример:</strong> Распознать ложь торговца (DC 14), понять истинные намерения NPC (DC
+                            16)
                         </div>
                     </div>
                 </div>
@@ -765,11 +789,13 @@
                 <div class="tips-container">
                     <div class="tip-card">
                         <i class="fas fa-brain"></i>
-                        <p>Спрашивайте <strong>"Как именно вы убеждаете?"</strong> и давайте бонусы за креативные подходы</p>
+                        <p>Спрашивайте <strong>"Как именно вы убеждаете?"</strong> и давайте бонусы за креативные
+                            подходы</p>
                     </div>
                     <div class="tip-card">
                         <i class="fas fa-undo"></i>
-                        <p>При провале предлагайте <strong>альтернативные пути</strong> (например, выполнить задание для NPC)</p>
+                        <p>При провале предлагайте <strong>альтернативные пути</strong> (например, выполнить задание для
+                            NPC)</p>
                     </div>
                     <div class="tip-card">
                         <i class="fas fa-users"></i>
@@ -784,19 +810,22 @@
                     <div class="scene-step">
                         <div class="step-marker">1</div>
                         <div class="step-content">
-                            <strong>ГМ:</strong> "Вы находитесь в таверне 'Пьяный гном'. За дальним столом сидит угрюмый дварф в доспехах - это Гаррик, наёмник, который может знать о пропавшем артефакте."
+                            <strong>ГМ:</strong> "Вы находитесь в таверне 'Пьяный гном'. За дальним столом сидит угрюмый
+                            дварф в доспехах - это Гаррик, наёмник, который может знать о пропавшем артефакте."
                         </div>
                     </div>
                     <div class="scene-step">
                         <div class="step-marker">2</div>
                         <div class="step-content">
-                            <strong>Игрок:</strong> "Я подхожу к дварфу и пытаюсь дружелюбно разговорить его, предлагая выпить вместе."
+                            <strong>Игрок:</strong> "Я подхожу к дварфу и пытаюсь дружелюбно разговорить его, предлагая
+                            выпить вместе."
                         </div>
                     </div>
                     <div class="scene-step">
                         <div class="step-marker">3</div>
                         <div class="step-content">
-                            <strong>ГМ:</strong> "Хорошо, бросай Persuasion. Гаррик недоверчив, но любит выпить - DC 14."
+                            <strong>ГМ:</strong> "Хорошо, бросай Persuasion. Гаррик недоверчив, но любит выпить - DC
+                            14."
                         </div>
                     </div>
                     <div class="scene-step">
@@ -808,7 +837,8 @@
                     <div class="scene-step">
                         <div class="step-marker">5</div>
                         <div class="step-content">
-                            <strong>ГМ:</strong> "Гаррик хмуро кивает, наливает вам эля и бормочет: 'Ладно, задавай свои вопросы, но после третьего кувшина!'"
+                            <strong>ГМ:</strong> "Гаррик хмуро кивает, наливает вам эля и бормочет: 'Ладно, задавай свои
+                            вопросы, но после третьего кувшина!'"
                         </div>
                     </div>
                 </div>
@@ -1328,7 +1358,8 @@
                             </div>
                         </div>
                         <div class="example">
-                            <strong>Пример:</strong> "Огненный шар — цель делает спасбросок Ловкости DC 13, при провале 2d6 урона"
+                            <strong>Пример:</strong> "Огненный шар — цель делает спасбросок Ловкости DC 13, при провале
+                            2d6 урона"
                         </div>
                     </div>
                 </div>
@@ -1826,7 +1857,8 @@
                         <i class="fas fa-dice"></i>
                     </div>
                     <h4>Урон</h4>
-                    <p>Все оружия наносят <span class="dice">1d6</span> урона (или <span class="dice">1d6 + мод.</span> если указано)</p>
+                    <p>Все оружия наносят <span class="dice">1d6</span> урона (или <span class="dice">1d6 + мод.</span>
+                        если указано)</p>
                 </div>
 
                 <div class="weapons-grid">
@@ -1882,7 +1914,8 @@
 
                 <div class="simplification-tip">
                     <i class="fas fa-lightbulb"></i>
-                    <p>Для упрощения можно использовать одинаковый урон <span class="dice">1d6</span> для всех видов оружия</p>
+                    <p>Для упрощения можно использовать одинаковый урон <span class="dice">1d6</span> для всех видов
+                        оружия</p>
                 </div>
             </div>
         </div>
@@ -2656,7 +2689,8 @@
                         </div>
                         <div class="step">
                             <div class="step-marker">3</div>
-                            <p><strong>ГМ:</strong> *бросает скрытно* "Ты не замечаешь ничего подозрительного" (даже если есть ловушка)</p>
+                            <p><strong>ГМ:</strong> *бросает скрытно* "Ты не замечаешь ничего подозрительного" (даже
+                                если есть ловушка)</p>
                         </div>
                     </div>
                 </div>
@@ -3591,8 +3625,11 @@
                     <div class="response-content">
                         <h4>Действия ГМа</h4>
                         <ol>
-                            <li>"Хорошо, бросьте проверку Perception или Investigation (в light-версии — Восприятие). DC среднее (15)."</li>
-                            <li>"Есть ли какие-то бонусы? Тёмная комната? Нет фонаря? Тогда помеха: бросок с помехой."</li>
+                            <li>"Хорошо, бросьте проверку Perception или Investigation (в light-версии — Восприятие). DC
+                                среднее (15)."
+                            </li>
+                            <li>"Есть ли какие-то бонусы? Тёмная комната? Нет фонаря? Тогда помеха: бросок с помехой."
+                            </li>
                         </ol>
                     </div>
                 </div>
@@ -3611,7 +3648,8 @@
                             <h5>Провал (<15)</h5>
                         </div>
                         <p>"Ты не замечаешь ничего особенного."</p>
-                        <p class="gm-note"><strong>Примечание ГМа:</strong> "Позже, если сундук откроется и сработает ловушка, я дам спасбросок Ловкости DC 13, чтобы увернуться."</p>
+                        <p class="gm-note"><strong>Примечание ГМа:</strong> "Позже, если сундук откроется и сработает
+                            ловушка, я дам спасбросок Ловкости DC 13, чтобы увернуться."</p>
                     </div>
                 </div>
             </div>
@@ -3675,11 +3713,13 @@
                             </div>
                             <div class="action-dialog">
                                 <i class="fas fa-user"></i>
-                                <p>"Есть зелье ослепления: цель делает спасбросок CON DC 13, при провале промахивается на следующий ход."</p>
+                                <p>"Есть зелье ослепления: цель делает спасбросок CON DC 13, при провале промахивается
+                                    на следующий ход."</p>
                             </div>
                             <div class="gm-response">
                                 <i class="fas fa-hat-wizard"></i>
-                                <p>"Бросай бросок атаки, чтобы попасть по колдунье зельем (или просто цель бросает спасбросок)."</p>
+                                <p>"Бросай бросок атаки, чтобы попасть по колдунье зельем (или просто цель бросает
+                                    спасбросок)."</p>
                             </div>
                         </div>
                     </div>
@@ -3690,7 +3730,8 @@
                     <div class="phase-content">
                         <h4>Ход NPC</h4>
                         <p>"Колдунья контратакует: 'Я кидаю огненный шар по ближним.'"</p>
-                        <p class="mechanics">Бросок спасброска Ловкости DC 14: успешный - половина урона, провал - полный урон.</p>
+                        <p class="mechanics">Бросок спасброска Ловкости DC 14: успешный - половина урона, провал -
+                            полный урон.</p>
                     </div>
                 </div>
 
@@ -3741,7 +3782,8 @@
                         <div class="step-content">
                             <div class="gm-response">
                                 <i class="fas fa-hat-wizard"></i>
-                                <p>"Вождь заинтересован, задаёт уточняющие вопросы. Давай ещё один бросок Insight (DC 12), чтобы понять, что он скрывает сомнение."</p>
+                                <p>"Вождь заинтересован, задаёт уточняющие вопросы. Давай ещё один бросок Insight (DC
+                                    12), чтобы понять, что он скрывает сомнение."</p>
                             </div>
                         </div>
                     </div>
@@ -3776,7 +3818,8 @@
                                 <i class="fas fa-times-circle"></i>
                                 <h5>Провал</h5>
                             </div>
-                            <p>"Вождь не убеждён, но предлагает испытание: выполните задачу, докажите полезность, и тогда он рассмотрит ваше предложение."</p>
+                            <p>"Вождь не убеждён, но предлагает испытание: выполните задачу, докажите полезность, и
+                                тогда он рассмотрит ваше предложение."</p>
                         </div>
                     </div>
                 </div>
@@ -3797,7 +3840,8 @@
                     </div>
                     <div class="tip-content">
                         <h4>Яркие, но краткие описания</h4>
-                        <p>"Вы входите в руины древнего храма: повсюду треснувшие колонны, пол покрыт пылью, слабый свет сквозит через пробоины в крыше."</p>
+                        <p>"Вы входите в руины древнего храма: повсюду треснувшие колонны, пол покрыт пылью, слабый свет
+                            сквозит через пробоины в крыше."</p>
                         <p class="tip-note">Избегайте долгих лекций - 1-2 предложения на локацию</p>
                     </div>
                 </div>
@@ -4111,6 +4155,696 @@
             }
 
             .scenario, .gm-response, .combat-phase, .scene-setting, .tip-card, .media-tip {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <!-- Секция шаблонов и шпаргалок -->
+    <section id="templates">
+        <h2><i class="fas fa-scroll"></i> Шаблоны и шпаргалки</h2>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-tasks"></i> Примерные DC и сложности</h3>
+
+            <div class="dc-table">
+                <div class="dc-row header">
+                    <div class="dc-type">Тип проверки</div>
+                    <div class="dc-value">DC</div>
+                    <div class="dc-difficulty">Сложность</div>
+                </div>
+                <div class="dc-row">
+                    <div class="dc-type">Социальный разговор с простым NPC</div>
+                    <div class="dc-value">12</div>
+                    <div class="dc-difficulty">Легко</div>
+                </div>
+                <div class="dc-row">
+                    <div class="dc-type">Переговоры с сомневающимся лидером</div>
+                    <div class="dc-value">14-15</div>
+                    <div class="dc-difficulty">Средне</div>
+                </div>
+                <div class="dc-row">
+                    <div class="dc-type">Обман или скрытое проникновение</div>
+                    <div class="dc-value">13-15</div>
+                    <div class="dc-difficulty">Средне</div>
+                </div>
+                <div class="dc-row">
+                    <div class="dc-type">Поиск скрытого входа</div>
+                    <div class="dc-value">15</div>
+                    <div class="dc-difficulty">Сложно</div>
+                </div>
+                <div class="dc-row">
+                    <div class="dc-type">Избежать ловушки</div>
+                    <div class="dc-value">13</div>
+                    <div class="dc-difficulty">Средне</div>
+                </div>
+                <div class="dc-row">
+                    <div class="dc-type">Избежать сильной магии</div>
+                    <div class="dc-value">15</div>
+                    <div class="dc-difficulty">Сложно</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Стили для примеров процедур */
+        .procedure-example {
+            margin-top: 1.5rem;
+        }
+
+        .scenario {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            margin-bottom: 1.5rem;
+        }
+
+        .dialogue {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .speaker {
+            font-weight: bold;
+        }
+
+        .speaker.player {
+            color: #4a6fa5;
+        }
+
+        .speaker.gm {
+            color: #28a745;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .outcomes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .outcome {
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .outcome.success {
+            background: #e8f5e9;
+            border-left: 4px solid #28a745;
+        }
+
+        .outcome.failure {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        .gm-note {
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            color: #6c757d;
+        }
+
+        /* Стили для примеров боя */
+        .combat-example {
+            margin-top: 1.5rem;
+        }
+
+        .phase {
+            margin-bottom: 2rem;
+        }
+
+        .player-turn, .npc-turn {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Стили для социальных примеров */
+        .social-example {
+            margin-top: 1.5rem;
+        }
+
+        .setup, .description {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .interaction-flow {
+            margin-top: 2rem;
+        }
+
+        .interaction {
+            margin-bottom: 1.5rem;
+        }
+
+        .player-action, .gm-response {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .possible-outcomes {
+            margin-top: 2rem;
+        }
+
+        .final-outcome {
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        /* Стили для управления атмосферой */
+        .atmosphere-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tip-card {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .tip-icon {
+            width: 50px;
+            height: 50px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Стили для шпаргалок */
+        .cheatsheet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .cheat-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .cheat-icon {
+            width: 40px;
+            height: 40px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        /* Стили для таблицы DC */
+        .dc-table {
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .dc-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            background: white;
+        }
+
+        .dc-row.header {
+            background: #4a6fa5;
+            color: white;
+            font-weight: bold;
+        }
+
+        .dc-row:not(.header):nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .dc-type, .dc-value, .dc-difficulty {
+            padding: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .outcomes, .atmosphere-tips, .cheatsheet-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dc-row {
+                grid-template-columns: 1fr;
+            }
+
+            .dc-row.header {
+                display: none;
+            }
+
+            .dc-type::before {
+                content: "Тип проверки: ";
+                font-weight: bold;
+            }
+
+            .dc-value::before {
+                content: "DC: ";
+                font-weight: bold;
+            }
+
+            .dc-difficulty::before {
+                content: "Сложность: ";
+                font-weight: bold;
+            }
+        }
+    </style>
+
+    <!-- Секция дополнительных советов -->
+    <section id="advice">
+        <h2><i class="fas fa-lightbulb"></i> Дополнительные советы</h2>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-magic"></i> Улучшение игрового процесса</h3>
+
+            <div class="advice-grid">
+                <div class="advice-card">
+                    <div class="advice-icon motivation">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h4>Мотивация персонажей</h4>
+                    <p>Дайте каждому игроку краткую личную цель:</p>
+                    <ul>
+                        <li>"Месть за уничтоженную деревню"</li>
+                        <li>"Поиск легендарного артефакта"</li>
+                        <li>"Искупление прошлых грехов"</li>
+                    </ul>
+                    <div class="tip">
+                        <strong>Совет:</strong> Запишите на листе персонажа
+                    </div>
+                </div>
+
+                <div class="advice-card">
+                    <div class="advice-icon teamwork">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4>Командное взаимодействие</h4>
+                    <p>Примеры совместных действий:</p>
+                    <ul>
+                        <li>Одновременное нажатие рычагов</li>
+                        <li>Групповое убеждение NPC</li>
+                        <li>Передача предметов в бою</li>
+                    </ul>
+                    <div class="tip">
+                        <strong>Бонус:</strong> Давайте преимущество за слаженность
+                    </div>
+                </div>
+
+                <div class="advice-card">
+                    <div class="advice-icon rules">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h4>Упрощение правил</h4>
+                    <p>Если возник спор:</p>
+                    <ol>
+                        <li>Примите быстрое решение</li>
+                        <li>Зафиксируйте правило</li>
+                        <li>Уточните после игры</li>
+                    </ol>
+                    <div class="warning">
+                        <i class="fas fa-exclamation-circle"></i> Не тратьте >2 минут на обсуждение
+                    </div>
+                </div>
+            </div>
+
+            <div class="emergency-solutions">
+                <h4><i class="fas fa-first-aid"></i> Экстренные решения</h4>
+                <div class="solutions">
+                    <div class="solution">
+                        <div class="solution-header">
+                            <i class="fas fa-wine-bottle"></i>
+                            <h5>Пожертвование ресурса</h5>
+                        </div>
+                        <p>Игрок может потратить зелье/предмет для автоматического успеха с последствиями</p>
+                    </div>
+                    <div class="solution">
+                        <div class="solution-header">
+                            <i class="fas fa-clock"></i>
+                            <h5>Плата временем</h5>
+                        </div>
+                        <p>Пропустить 1d4 хода для перепроверки сложного действия</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rewards-system">
+                <h4><i class="fas fa-trophy"></i> Система поощрений</h4>
+                <div class="rewards">
+                    <div class="reward">
+                        <i class="fas fa-star"></i>
+                        <p>Жетон за креативность</p>
+                    </div>
+                    <div class="reward">
+                        <i class="fas fa-laugh"></i>
+                        <p>Награда за лучшую шутку</p>
+                    </div>
+                    <div class="reward">
+                        <i class="fas fa-handshake"></i>
+                        <p>Приз за командную работу</p>
+                    </div>
+                </div>
+                <div class="note">
+                    <strong>Важно:</strong> В конце сессии упомяните достижения всех игроков
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция итоговых рекомендаций -->
+    <section id="final-tips">
+        <h2><i class="fas fa-medal"></i> Итоговые рекомендации для ГМа</h2>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-hourglass-start"></i> Во время сессии</h3>
+
+            <div class="session-tips">
+                <div class="tip-column">
+                    <div class="tip-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="tip-content">
+                            <h5>Объяснение механик</h5>
+                            <p>Показывайте на примере при первом использовании ("Бросок атаки: d20 + модификатор")</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-sliders-h"></i>
+                        </div>
+                        <div class="tip-content">
+                            <h5>Гибкость правил</h5>
+                            <p>Адаптируйте сложность проверок под ситуацию (DC 10-15 для стандартных задач)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-column">
+                    <div class="tip-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="tip-content">
+                            <h5>Динамика игры</h5>
+                            <p>Чередуйте: 30 мин диалоги → 30 мин бой → 20 мин исследование</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="tip-content">
+                            <h5>Вовлечение всех</h5>
+                            <p>Задавайте вопросы тихим игрокам: "А что делает твой персонаж?"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feedback-system">
+                <h4><i class="fas fa-comments"></i> Система обратной связи</h4>
+                <div class="feedback-examples">
+                    <div class="feedback good">
+                        <i class="fas fa-thumbs-up"></i>
+                        <p>"Отличная идея! Возьми преимущество на этот бросок"</p>
+                    </div>
+                    <div class="feedback bad">
+                        <i class="fas fa-thumbs-down"></i>
+                        <p>"Этот аргумент слабоват, давай DC 15 для Persuasion"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Стили для дополнительных советов */
+        .advice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .advice-card {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .advice-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .motivation {
+            background: #6f42c1;
+        }
+
+        .teamwork {
+            background: #20c997;
+        }
+
+        .rules {
+            background: #fd7e14;
+        }
+
+        .tip, .warning {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .tip {
+            background: #e2f3f8;
+            border-left: 3px solid #17a2b8;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 3px solid #ffc107;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .emergency-solutions {
+            margin: 2rem 0;
+        }
+
+        .solutions {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .solution {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .solution-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-header i {
+            font-size: 1.5rem;
+            color: #dc3545;
+        }
+
+        .rewards-system {
+            margin-top: 2rem;
+        }
+
+        .rewards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .reward {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: #f8f9fa;
+            border-radius: 20px;
+        }
+
+        .reward i {
+            color: #ffc107;
+        }
+
+        .note {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: #e8f5e9;
+            border-radius: 6px;
+            border-left: 3px solid #28a745;
+        }
+
+        /* Стили для итоговых рекомендаций */
+        .session-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .tip-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tip-icon {
+            width: 50px;
+            height: 50px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .feedback-system {
+            margin-top: 2rem;
+        }
+
+        .feedback-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .feedback {
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .good {
+            background: #e8f5e9;
+            border-left: 4px solid #28a745;
+        }
+
+        .bad {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        .feedback i {
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .post-session {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .review-card, .improvement-card {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .review-icon, .improvement-icon {
+            width: 50px;
+            height: 50px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .advice-grid, .solutions, .session-tips,
+            .feedback-examples, .post-session {
+                grid-template-columns: 1fr;
+            }
+
+            .rewards {
                 flex-direction: column;
             }
         }
