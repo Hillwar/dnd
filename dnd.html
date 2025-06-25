@@ -3,416 +3,3073 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Light D&D: Правила для ГМ</title>
+    <title>Light D&D: Руководство для ГМ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+          --primary: #4a6fa5;
+          --secondary: #166088;
+          --accent: #4fc3f7;
+          --light: #f8f9fa;
+          --dark: #212529;
+          --success: #28a745;
+          --danger: #dc3545;
+          --warning: #ffc107;
+        }
+
         body {
-          font-family: system-ui, sans-serif;
-          line-height: 1.6;
-          background: #f9f9f9;
-          color: #333;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          line-height: 1.7;
+          background: #f5f7fa;
+          color: var(--dark);
           margin: 0;
           padding: 0;
         }
+
         header {
-          background: #24292e;
+          background: linear-gradient(135deg, var(--primary), var(--secondary));
           color: white;
-          padding: 1rem 2rem;
+          padding: 1.5rem 2rem;
           position: sticky;
           top: 0;
           z-index: 1000;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
+
+        .header-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
         nav {
           display: flex;
           flex-wrap: wrap;
-          gap: 1rem;
+          gap: 0.75rem;
+          align-items: center;
         }
+
         nav a {
-          color: #61dafb;
+          color: white;
           text-decoration: none;
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+          background-color: rgba(255,255,255,0.1);
+          transition: all 0.3s ease;
+          font-size: 0.9rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
         }
+
+        nav a:hover {
+          background-color: rgba(255,255,255,0.2);
+          transform: translateY(-2px);
+        }
+
+        nav a i {
+          font-size: 0.8rem;
+        }
+
         main {
           padding: 2rem;
-          max-width: 900px;
-          margin: auto;
+          max-width: 1200px;
+          margin: 0 auto;
         }
+
         section {
           margin-bottom: 3rem;
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+          padding: 2rem;
+          position: relative;
         }
-        h1, h2, h3 {
-          color: #222;
+
+        section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 5px;
+          height: 100%;
+          background: var(--accent);
+          border-radius: 8px 0 0 8px;
         }
+
+        h1, h2, h3, h4 {
+          color: var(--secondary);
+          margin-top: 0;
+        }
+
+        h2 {
+          border-bottom: 2px solid var(--accent);
+          padding-bottom: 0.5rem;
+          margin-bottom: 1.5rem;
+        }
+
         .rule-card {
           background: white;
-          border-left: 4px solid #007acc;
-          padding: 1rem;
-          margin: 1rem 0;
-          box-shadow: 0 0 5px rgba(0,0,0,0.05);
-          border-radius: 4px;
+          border-left: 4px solid var(--primary);
+          padding: 1.5rem;
+          margin: 1.5rem 0;
+          border-radius: 6px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+          transition: transform 0.3s ease;
         }
-        .cheatsheet, .dice-block {
-          background: #eef6ff;
-          padding: 1rem;
-          border-radius: 4px;
-          margin: 1rem 0;
-          font-family: monospace;
+
+        .rule-card:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
+
+        .rule-card h3 {
+          margin-top: 0;
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+        }
+
+        .rule-card h3 i {
+          color: var(--accent);
+        }
+
+        .cheatsheet {
+          background: #f0f7ff;
+          padding: 1.5rem;
+          border-radius: 8px;
+          margin: 1.5rem 0;
+          border: 1px solid #d0e3ff;
+        }
+
+        .dice-block {
+          background: #fff8e1;
+          padding: 1rem;
+          border-radius: 8px;
+          margin: 1rem 0;
+          border-left: 4px solid var(--warning);
+          display: inline-block;
+        }
+
+        .dice-formula {
+          font-family: 'Courier New', monospace;
+          background: #f5f5f5;
+          padding: 0.2rem 0.4rem;
+          border-radius: 4px;
+          color: var(--dark);
+        }
+
         table {
           border-collapse: collapse;
           width: 100%;
-          margin: 1rem 0;
+          margin: 1.5rem 0;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
+
         th, td {
-          border: 1px solid #ccc;
-          padding: 0.5rem;
+          border: 1px solid #ddd;
+          padding: 0.75rem;
           text-align: left;
         }
+
         th {
-          background: #f0f0f0;
+          background-color: var(--primary);
+          color: white;
+          font-weight: 500;
+        }
+
+        tr:nth-child(even) {
+          background-color: #f8f9fa;
+        }
+
+        .example {
+          background: #f5f5f5;
+          padding: 1rem;
+          border-radius: 6px;
+          margin: 1rem 0;
+          position: relative;
+          border-left: 4px solid var(--accent);
+        }
+
+        .example:before {
+          content: 'Пример';
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: var(--accent);
+          color: white;
+          padding: 0.2rem 0.8rem;
+          font-size: 0.8rem;
+          border-radius: 0 0 4px 0;
+        }
+
+        .accordion {
+          margin: 1rem 0;
+        }
+
+        .accordion-header {
+          padding: 1rem;
+          background: #f8f9fa;
+          border: 1px solid #ddd;
+          cursor: pointer;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 6px;
+          transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover {
+          background: #e9ecef;
+        }
+
+        .accordion-content {
+          padding: 1rem;
+          border: 1px solid #ddd;
+          border-top: none;
+          border-radius: 0 0 6px 6px;
+          display: none;
+        }
+
+        .accordion.active .accordion-content {
+          display: block;
+        }
+
+        .calculator {
+          background: #f8f9fa;
+          padding: 1.5rem;
+          border-radius: 8px;
+          margin: 1.5rem 0;
+        }
+
+        .calculator input {
+          padding: 0.5rem;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          width: 60px;
+          text-align: center;
+        }
+
+        .calculator button {
+          background: var(--primary);
+          color: white;
+          border: none;
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          cursor: pointer;
+          margin-left: 0.5rem;
+          transition: background 0.3s ease;
+        }
+
+        .calculator button:hover {
+          background: var(--secondary);
+        }
+
+        .result {
+          margin-top: 1rem;
+          font-weight: bold;
+          padding: 0.5rem;
+          background: #e9ecef;
+          border-radius: 4px;
+          display: inline-block;
+        }
+
+        .quick-nav {
+          position: fixed;
+          right: 2rem;
+          top: 50%;
+          transform: translateY(-50%);
+          background: white;
+          border-radius: 8px;
+          box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+          padding: 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          z-index: 100;
+        }
+
+        .quick-nav a {
+          color: var(--dark);
+          text-decoration: none;
+          padding: 0.5rem;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+          font-size: 0.9rem;
+          white-space: nowrap;
+        }
+
+        .quick-nav a:hover {
+          background: var(--accent);
+          color: white;
+        }
+
+        .tag {
+          display: inline-block;
+          padding: 0.2rem 0.6rem;
+          background: var(--accent);
+          color: white;
+          border-radius: 20px;
+          font-size: 0.8rem;
+          margin-right: 0.5rem;
+          margin-bottom: 0.5rem;
+        }
+
+        .tip {
+          background: #e8f5e9;
+          padding: 1rem;
+          border-radius: 6px;
+          margin: 1rem 0;
+          border-left: 4px solid var(--success);
+          position: relative;
+        }
+
+        .tip:before {
+          content: 'Совет';
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: var(--success);
+          color: white;
+          padding: 0.2rem 0.8rem;
+          font-size: 0.8rem;
+          border-radius: 0 0 4px 0;
+        }
+
+        .warning {
+          background: #ffebee;
+          padding: 1rem;
+          border-radius: 6px;
+          margin: 1rem 0;
+          border-left: 4px solid var(--danger);
+          position: relative;
+        }
+
+        .warning:before {
+          content: 'Важно';
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: var(--danger);
+          color: white;
+          padding: 0.2rem 0.8rem;
+          font-size: 0.8rem;
+          border-radius: 0 0 4px 0;
+        }
+
+        @media (max-width: 768px) {
+          .quick-nav {
+            display: none;
+          }
+
+          nav {
+            justify-content: center;
+          }
+
+          section {
+            padding: 1.5rem;
+          }
         }
     </style>
 </head>
 <body>
 <header>
-    <h1>Light D&D: Правила для ГМ</h1>
-    <nav>
-        <a href="#intro">Введение</a>
-        <a href="#mechanics">Основы</a>
-        <a href="#combat">Бой</a>
-        <a href="#skills">Навыки</a>
-        <a href="#saves">Спасброски</a>
-        <a href="#magic">Магия</a>
-        <a href="#items">Снаряжение</a>
-        <a href="#healing">Здоровье</a>
-        <a href="#gm">Памятка ГМа</a>
-    </nav>
+    <div class="header-container">
+        <h1><i class="fas fa-dice-d20"></i> Light D&D: Руководство для ГМ</h1>
+        <nav>
+            <a href="#intro"><i class="fas fa-home"></i> Введение</a>
+            <a href="#mechanics"><i class="fas fa-cogs"></i> Основы</a>
+            <a href="#combat"><i class="fas fa-swords"></i> Бой</a>
+            <a href="#skills"><i class="fas fa-brain"></i> Навыки</a>
+            <a href="#saves"><i class="fas fa-shield-alt"></i> Спасброски</a>
+            <a href="#magic"><i class="fas fa-hat-wizard"></i> Магия</a>
+            <a href="#items"><i class="fas fa-backpack"></i> Снаряжение</a>
+            <a href="#healing"><i class="fas fa-heart"></i> Здоровье</a>
+            <a href="#gm"><i class="fas fa-book"></i> Памятка ГМа</a>
+        </nav>
+    </div>
 </header>
+
 <main>
+
+
     <section id="intro">
-        <h2>Введение и концепция Light D&D для новичков</h2>
+        <h2><i class="fas fa-home"></i> Введение и концепция Light D&D</h2>
         <div class="rule-card">
-            <p>В этой инструкции приведены упрощённые правила “Light D&D”, предназначенные для односессионной игры в детском лагере. Игра рассчитана на 6 новичков, в том числе без опыта. 15 минут на объяснение правил, 3.5 часа на игру. Предсозданные персонажи, используются кубики d20 и d6, бумага и карандаш.</p>
+            <h3><i class="fas fa-info-circle"></i> О системе</h3>
+            <p>Упрощённые правила "Light D&D" предназначены для односессионной игры с новичками. Всего 15 минут на объяснение правил и 3.5 часа на игру.</p>
+
+            <div class="tip">
+                <p>Используйте предсозданных персонажей, стандартные кубики (d20 и d6), бумагу и карандаши.</p>
+            </div>
+
+            <div class="warning">
+                <p>Главная задача ГМа — сохранить ощущение свободы, сюжетность и интересные взаимодействия, несмотря на упрощённые правила.</p>
+            </div>
         </div>
     </section>
 
     <section id="mechanics">
-        <h2>1. Основные концепты и ядро механики</h2>
+        <h2><i class="fas fa-cogs"></i> Основные концепты и ядро механики</h2>
 
         <div class="rule-card">
-            <h3>Кубики</h3>
+            <h3><i class="fas fa-dice"></i> Кубики</h3>
             <ul>
-                <li><strong>d20</strong>: используется для всех проверок — атаки, спасбросков, навыков, инициативы и др.</li>
-                <li><strong>d6</strong>: используется для урона, исцеления, эффектов вроде зелья и упрощённых умений.</li>
+                <li><strong class="dice-formula">d20</strong>: для всех проверок (атаки, спасброски, навыки, инициатива)</li>
+                <li><strong class="dice-formula">d6</strong>: для урона, исцеления, эффектов (зелья и т.д.)</li>
             </ul>
         </div>
 
         <div class="rule-card">
-            <h3>Механика проверок</h3>
+            <h3><i class="fas fa-check-circle"></i> Механика проверок</h3>
+            <div class="accordion">
+                <div class="accordion-header">
+                    <span>Типы проверок <i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><strong>Проверка (Check)</strong>: <span class="dice-formula">d20 + модификатор</span> vs DC. Если ≥ DC — успех.</li>
+                        <li><strong>Спасбросок (Saving Throw)</strong>: аналогично проверке, но против угроз (ловушки, яды, магия).</li>
+                        <li><strong>Контест</strong>: оба бросают <span class="dice-formula">d20 + модификаторы</span>. Побеждает больший результат.</li>
+                    </ul>
+
+                    <div class="example">
+                        <p><strong>Проверка навыка:</strong> Игрок хочет перепрыгнуть яму. ГМ устанавливает DC 15 (Средне). Игрок бросает <span class="dice-formula">d20 + модификатор Силы</span>. Если результат ≥15 — успех.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-calculator"></i> Модификатор характеристики</h3>
+            <p>Формула: <span class="dice-formula">модификатор = floor((Значение - 10) / 2)</span></p>
+        </div>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-star"></i> Профицирование (Владение)</h3>
+            <p>+2 к броску, если персонаж владеет проверкой или спасброском.</p>
+
+            <div class="example">
+                <p>Персонаж владеет навыком Скрытность (Stealth). Его модификатор Ловкости +2. При проверке Скрытности он бросает <span class="dice-formula">d20 + 2 (DEX) + 2 (Владение)</span> = <span class="dice-formula">d20 + 4</span>.</p>
+            </div>
+        </div>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-balance-scale"></i> Преимущество / Помеха</h3>
             <ul>
-                <li><strong>Проверка (Check)</strong>: d20 + модификатор. Сравнивается с DC. Если ≥ DC — успех.</li>
-                <li><strong>Спасбросок (Saving Throw)</strong>: d20 + модификатор (включая владение, если есть).</li>
-                <li><strong>Контест</strong>: оба бросают d20 + модификаторы. Побеждает больший результат.</li>
+                <li><strong>Преимущество:</strong> бросаете 2d20, берёте лучший результат.</li>
+                <li><strong>Помеха:</strong> бросаете 2d20, берёте худший результат.</li>
+                <li>Если есть и то и другое — нейтрализуются, бросаете 1d20.</li>
             </ul>
+
+            <div class="tip">
+                <p><strong>Когда давать преимущество:</strong> скрытая атака, помощь союзника, удачные условия.</p>
+                <p><strong>Когда давать помеху:</strong> темнота, болевые эффекты, плохие условия.</p>
+            </div>
         </div>
 
         <div class="rule-card">
-            <h3>Модификатор характеристики</h3>
-            <p>Формула: <code>модификатор = floor((Значение - 10) / 2)</code></p>
-            <p>Примеры: 14 → +2, 12 → +1, 9 → −1 и т.д. Можно заранее вписать модификаторы в лист персонажа.</p>
-        </div>
+            <h3><i class="fas fa-bullseye"></i> Цели проверок (DC)</h3>
+            <table>
+                <tr>
+                    <th>Сложность</th>
+                    <th>DC</th>
+                    <th>Пример</th>
+                </tr>
+                <tr>
+                    <td>Легко</td>
+                    <td>8-10</td>
+                    <td>Найти предмет на столе</td>
+                </tr>
+                <tr>
+                    <td>Средне</td>
+                    <td>13-15</td>
+                    <td>Убедить стражника</td>
+                </tr>
+                <tr>
+                    <td>Сложно</td>
+                    <td>18-20</td>
+                    <td>Акробатический трюк над пропастью</td>
+                </tr>
+            </table>
 
-        <div class="rule-card">
-            <h3>Профицирование (Владение)</h3>
-            <p>+2 к броску, если персонаж владеет проверкой. Отмечено в листе персонажа.</p>
-        </div>
-
-        <div class="rule-card">
-            <h3>Преимущество / Помеха</h3>
-            <ul>
-                <li><strong>Преимущество:</strong> 2d20, берётся лучший результат.</li>
-                <li><strong>Помеха:</strong> 2d20, берётся худший результат.</li>
-                <li>Если и то и другое — нейтрализуются, бросается 1d20.</li>
-            </ul>
-            <p><strong>Примеры преимущества:</strong> скрытая атака, помощь союзника, подготовка.</p>
-            <p><strong>Примеры помехи:</strong> темнота, болевые эффекты, плохие условия.</p>
-        </div>
-
-        <div class="rule-card">
-            <h3>Цели проверок (DC)</h3>
-            <ul>
-                <li><strong>Легко:</strong> DC 8–10</li>
-                <li><strong>Средне:</strong> DC 13–15</li>
-                <li><strong>Сложно:</strong> DC 18–20</li>
-            </ul>
-            <p>ГМ может варьировать +/− 2–4 в зависимости от ситуации.</p>
+            <div class="tip">
+                <p>Можно варьировать DC на 2-4 пункта в зависимости от ситуации, но старайтесь держаться базовых чисел.</p>
+            </div>
         </div>
     </section>
 
     <section id="combat">
-        <h2>2. Ход боя</h2>
+        <h2><i class="fas fa-swords"></i> Ход боя</h2>
 
         <div class="rule-card">
-            <h3>Инициатива</h3>
-            <p>В начале боя каждый участник бросает <strong>d20 + модификатор Ловкости</strong>. Упорядочивается от большего к меньшему. При равенстве — переброс или договорённость. У группы врагов можно один бросок на всех.</p>
+            <h3><i class="fas fa-flag"></i> Инициатива</h3>
+            <p>В начале боя каждый участник бросает <span class="dice-formula">d20 + модификатор Ловкости</span>.</p>
+            <p>Результаты упорядочиваются от большего к меньшему. При равенстве — переброс или договорённость.</p>
+
+            <div class="example">
+                <p><strong>Пример:</strong> Игрок бросает <span class="dice-formula">d20 + 2 (DEX)</span> = 15. Враг бросает <span class="dice-formula">d20 + 1</span> = 10. Игрок ходит первым.</p>
+            </div>
         </div>
 
         <div class="rule-card">
-            <h3>Ход персонажа</h3>
+            <h3><i class="fas fa-user-clock"></i> Ход персонажа</h3>
+            <div class="accordion">
+                <div class="accordion-header">
+                    <span>Действия в бою <i class="fas fa-chevron-down"></i></span>
+                </div>
+                <div class="accordion-content">
+                    <ul>
+                        <li><strong>Движение:</strong> до скорости (Speed) в листе персонажа.</li>
+                        <li><strong>Действие:</strong> одно основное (атака, заклинание, поиск, помощь, уклонение).</li>
+                        <li><strong>Бонусное действие:</strong> если есть в листе (например, особые способности).</li>
+                        <li><strong>Реакция:</strong> вне хода (например, контратака).</li>
+                    </ul>
+
+                    <div class="tip">
+                        <p>Для новичков можно ограничиться только основным действием, постепенно вводя остальные.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-shield-alt"></i> Класс Брони (AC) и атака</h3>
+            <p><strong>AC</strong> (Класс Брони) — защита персонажа. Атака попадает, если <span class="dice-formula">d20 + бонус атаки ≥ AC</span>.</p>
+
+            <div class="example">
+                <p>Игрок атакует врага с AC 14. Бросает <span class="dice-formula">d20 + 5 (атака)</span> = 18. Попадание! Затем бросает урон: <span class="dice-formula">1d6 + 3</span> = 5 урона.</p>
+            </div>
+
+            <div class="tip">
+                <p>Упрощение: можно сделать весь урон <span class="dice-formula">1d6</span> без модификаторов для новичков.</p>
+            </div>
+        </div>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-heartbeat"></i> Хиты и падение</h3>
+            <p>При падении HP до 0:</p>
             <ul>
-                <li><strong>Движение:</strong> до скорости (Speed), указано в листе. Условные единицы или клетки.</li>
-                <li><strong>Действие:</strong> одно основное действие (атака, заклинание, поиск, помощь, уклонение и др.).</li>
-                <li><strong>Бонусное действие:</strong> если есть в листе — можно использовать. Иначе — пропускается.</li>
-                <li><strong>Реакция:</strong> вне хода, по событию. Можно упростить — 1 реакция по описанию в листе.</li>
+                <li><strong>Упрощённо:</strong> персонаж выведен из боя.</li>
+                <li>Союзник может помочь: действие + проверка <span class="dice-formula">Medicine или CON DC 10</span>.</li>
+                <li>Успех — возвращение с 1 HP. Провал — остаётся выведенным.</li>
             </ul>
-        </div>
 
-        <div class="rule-card">
-            <h3>Класс Брони (AC) и атака</h3>
-            <p><strong>AC</strong> задан заранее. Зависит от брони, ловкости, щита. Щит +2 к AC.</p>
-            <p><strong>Бросок атаки:</strong> <code>d20 + бонус атаки</code>. Если ≥ AC цели — попадание.</p>
-            <p><strong>Урон:</strong> обычно 1d6 или 1d6 + модификатор. Можно упростить — просто 1d6.</p>
-        </div>
-
-        <div class="rule-card">
-            <h3>Хиты и падение</h3>
-            <p><strong>HP</strong> указаны в листе. При падении до 0:</p>
-            <ul>
-                <li><strong>Упрощённо:</strong> персонаж выведен из боя. Помощь союзника — можно вернуть в бой с 1 HP.</li>
-                <li><strong>Альтернатива:</strong> спасбросок Телосложения DC 10. Успех — стабилен, провал — смерть. Для новичков лучше использовать упрощённый вариант.</li>
-            </ul>
-        </div>
-
-        <div class="rule-card">
-            <h3>Движение и дистанции</h3>
-            <p>Сетка: 1 клетка ≈ 1.5–2 м. Скорость ≈ 6 клеток. Без сетки — описательно. Трудная местность — движение вдвое медленнее или требует проверки.</p>
-        </div>
-
-        <div class="rule-card">
-            <h3>Повторные атаки</h3>
-            <p>Обычно 1 атака за ход. У воинов можно прописать 2 атаки, но можно упростить до одной для всех.</p>
+            <div class="warning">
+                <p>Для ваншота лучше использовать упрощённый вариант, чтобы не усложнять игру.</p>
+            </div>
         </div>
     </section>
 
     <section id="skills">
-        <h2>3. Навыки и социальные взаимодействия</h2>
+        <h2><i class="fas fa-comments"></i> Навыки и социальные взаимодействия</h2>
 
         <div class="rule-card">
-            <h3>Упрощённый список навыков</h3>
-            <p>Можно оставить 5–6 ключевых навыков:</p>
-            <ul>
-                <li><strong>Атлетика (STR):</strong> прыжки, лазание, перетягивание.</li>
-                <li><strong>Скрытность (DEX):</strong> прятки, бесшумное движение.</li>
-                <li><strong>Восприятие (WIS):</strong> замечание скрытого, слух.</li>
-                <li><strong>Инсайт (WIS):</strong> определить ложь, намерения.</li>
-                <li><strong>Убеждение (CHA):</strong> дипломатия, уговоры.</li>
-                <li><strong>Знание (INT):</strong> факты, история, природа.</li>
-            </ul>
-            <p>Модификатор: <code>d20 + характеристика +2</code> если есть владение.</p>
+            <h3><i class="fas fa-list-ul"></i> Упрощённый список навыков</h3>
+
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-header" style="background-color: #4a6fa5;">
+                        <i class="fas fa-dumbbell"></i>
+                        <h4>Атлетика (STR)</h4>
+                    </div>
+                    <div class="skill-body">
+                        <p>Физические действия: прыжки, лазание, перетягивание каната, плавание.</p>
+                        <div class="skill-example">
+                            <strong>Пример:</strong> Перепрыгнуть пропасть (DC 15), удержать падающего товарища (CON 13)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header" style="background-color: #28a745;">
+                        <i class="fas fa-user-secret"></i>
+                        <h4>Скрытность (DEX)</h4>
+                    </div>
+                    <div class="skill-body">
+                        <p>Прятаться, двигаться бесшумно, скрывать действия.</p>
+                        <div class="skill-example">
+                            <strong>Пример:</strong> Пробраться мимо стражи (DC 14), спрятать предмет (DC 12)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header" style="background-color: #ffc107;">
+                        <i class="fas fa-eye"></i>
+                        <h4>Восприятие (WIS)</h4>
+                    </div>
+                    <div class="skill-body">
+                        <p>Замечать детали, слышать звуки, обнаруживать скрытое.</p>
+                        <div class="skill-example">
+                            <strong>Пример:</strong> Услышать шаги в темноте (DC 12), найти потайную дверь (DC 15)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header" style="background-color: #dc3545;">
+                        <i class="fas fa-brain"></i>
+                        <h4>Инсайт (WIS)</h4>
+                    </div>
+                    <div class="skill-body">
+                        <p>Чувствовать обман, понимать мотивы, распознавать эмоции.</p>
+                        <div class="skill-example">
+                            <strong>Пример:</strong> Распознать ложь торговца (DC 14), понять истинные намерения NPC (DC 16)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header" style="background-color: #6f42c1;">
+                        <i class="fas fa-handshake"></i>
+                        <h4>Убеждение (CHA)</h4>
+                    </div>
+                    <div class="skill-body">
+                        <p>Дипломатия, переговоры, дружелюбное влияние.</p>
+                        <div class="skill-example">
+                            <strong>Пример:</strong> Уговорить стражника (DC 13), получить скидку у торговца (DC 10)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-header" style="background-color: #17a2b8;">
+                        <i class="fas fa-book"></i>
+                        <h4>Знание (INT)</h4>
+                    </div>
+                    <div class="skill-body">
+                        <p>Факты, история, магия, природа, религия.</p>
+                        <div class="skill-example">
+                            <strong>Пример:</strong> Опознать древний символ (DC 15), вспомнить слабость монстра (DC 12)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-mechanics">
+                <h4><i class="fas fa-calculator"></i> Механика проверок</h4>
+                <div class="formula-box">
+                    <span class="formula">d20</span>
+                    <span class="plus">+</span>
+                    <span class="modifier">Мод. характеристики</span>
+                    <span class="plus">+</span>
+                    <span class="proficiency">2 (если владеет)</span>
+                    <span class="vs">≥</span>
+                    <span class="dc">DC</span>
+                </div>
+
+                <div class="ownership-rules">
+                    <div class="rule">
+                        <i class="fas fa-check-circle"></i>
+                        <span>У каждого персонажа 2-3 владения навыками</span>
+                    </div>
+                    <div class="rule">
+                        <i class="fas fa-dice"></i>
+                        <span>Преимущество/помеха применяются как обычно</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="rule-card">
-            <h3>Проверки навыков</h3>
-            <p>Игрок хочет что-то сделать — ГМ объявляет проверку и DC (Легко/Средне/Сложно). Бросается <code>d20 + модификатор</code>. Примеры:</p>
-            <ul>
-                <li>Игра престолов: найти дверь — <strong>Восприятие DC 15</strong>.</li>
-                <li>Спор с NPC — <strong>Persuasion vs. Insight</strong>.</li>
-            </ul>
-        </div>
+            <h3><i class="fas fa-users"></i> Социальное взаимодействие</h3>
 
-        <div class="rule-card">
-            <h3>Социальное взаимодействие</h3>
-            <ul>
-                <li><strong>Подготовка:</strong> ГМ описывает NPC (мотивация, личность).</li>
-                <li><strong>Навыки:</strong> Persuasion, Insight, (возможно Deception с помехой).</li>
-                <li><strong>Контесты:</strong> игрок бросает Persuasion, NPC — Insight или бонус сопротивления.</li>
-                <li><strong>Результаты:</strong> успех — помощь, информация; провал — отказ, условие.</li>
-            </ul>
-            <p><strong>Подсказки ГМу:</strong></p>
-            <ul>
-                <li>Поощряй креативность — дай преимущество или снизь DC.</li>
-                <li>Не «всё или ничего»: давай шанс переиграть ситуацию.</li>
-            </ul>
+            <div class="social-flow">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Подготовка NPC</h4>
+                    <p>Опишите для каждого NPC:</p>
+                    <ul>
+                        <li><strong>Мотивацию</strong> (что хочет?)</li>
+                        <li><strong>Отношение</strong> (дружелюбен/нейтрален/враждебен)</li>
+                        <li><strong>Секрет</strong> (что скрывает?)</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Выбор подхода</h4>
+                    <div class="approach-options">
+                        <div class="option">
+                            <i class="fas fa-comment-dots"></i>
+                            <strong>Убеждение</strong>
+                            <span>Стандартный подход, DC обычный</span>
+                        </div>
+                        <div class="option">
+                            <i class="fas fa-theater-masks"></i>
+                            <strong>Обман</strong>
+                            <span>Persuasion с помехой</span>
+                        </div>
+                        <div class="option">
+                            <i class="fas fa-fist-raised"></i>
+                            <strong>Запугивание</strong>
+                            <span>Persuasion с помехой или отдельный бросок</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Механика контеста</h4>
+                    <div class="contest-mechanics">
+                        <div class="player-side">
+                            <h5>Игрок</h5>
+                            <div class="dice-formula">d20 + CHA + 2 (если владеет)</div>
+                            <span>Persuasion/Deception</span>
+                        </div>
+                        <div class="vs-circle">VS</div>
+                        <div class="npc-side">
+                            <h5>NPC</h5>
+                            <div class="dice-formula">d20 + WIS + X</div>
+                            <span>Insight или фиксированный бонус</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-results">
+                <h4><i class="fas fa-poll"></i> Возможные результаты</h4>
+                <div class="results-grid">
+                    <div class="result success">
+                        <h5>Успех (≥ DC)</h5>
+                        <ul>
+                            <li>NPC соглашается на просьбу</li>
+                            <li>Даёт полезную информацию</li>
+                            <li>Предлагает помощь</li>
+                        </ul>
+                    </div>
+                    <div class="result partial">
+                        <h5>Частичный успех (DC-2)</h5>
+                        <ul>
+                            <li>Соглашается с условиями</li>
+                            <li>Даёт часть информации</li>
+                            <li>Требует доказательств</li>
+                        </ul>
+                    </div>
+                    <div class="result failure">
+                        <h5>Провал (< DC)</h5>
+                        <ul>
+                            <li>Отказывает в просьбе</li>
+                            <li>Может разозлиться</li>
+                            <li>Ставит новые условия</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gm-tips">
+                <h4><i class="fas fa-lightbulb"></i> Советы ГМ</h4>
+                <div class="tips-container">
+                    <div class="tip-card">
+                        <i class="fas fa-brain"></i>
+                        <p>Спрашивайте <strong>"Как именно вы убеждаете?"</strong> и давайте бонусы за креативные подходы</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-undo"></i>
+                        <p>При провале предлагайте <strong>альтернативные пути</strong> (например, выполнить задание для NPC)</p>
+                    </div>
+                    <div class="tip-card">
+                        <i class="fas fa-users"></i>
+                        <p>Разрешайте другим игрокам <strong>помогать</strong> (преимущество на проверку)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-example">
+                <h4><i class="fas fa-theater-masks"></i> Пример сцены</h4>
+                <div class="scene-flow">
+                    <div class="scene-step">
+                        <div class="step-marker">1</div>
+                        <div class="step-content">
+                            <strong>ГМ:</strong> "Вы находитесь в таверне 'Пьяный гном'. За дальним столом сидит угрюмый дварф в доспехах - это Гаррик, наёмник, который может знать о пропавшем артефакте."
+                        </div>
+                    </div>
+                    <div class="scene-step">
+                        <div class="step-marker">2</div>
+                        <div class="step-content">
+                            <strong>Игрок:</strong> "Я подхожу к дварфу и пытаюсь дружелюбно разговорить его, предлагая выпить вместе."
+                        </div>
+                    </div>
+                    <div class="scene-step">
+                        <div class="step-marker">3</div>
+                        <div class="step-content">
+                            <strong>ГМ:</strong> "Хорошо, бросай Persuasion. Гаррик недоверчив, но любит выпить - DC 14."
+                        </div>
+                    </div>
+                    <div class="scene-step">
+                        <div class="step-marker">4</div>
+                        <div class="step-content">
+                            <strong>Игрок:</strong> "Я владею Persuasion (+3) и CHA +2. Бросаю... 15!"
+                        </div>
+                    </div>
+                    <div class="scene-step">
+                        <div class="step-marker">5</div>
+                        <div class="step-content">
+                            <strong>ГМ:</strong> "Гаррик хмуро кивает, наливает вам эля и бормочет: 'Ладно, задавай свои вопросы, но после третьего кувшина!'"
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <style>
+        /* Стили для секции навыков */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .skill-item {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-header {
+            padding: 1rem;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .skill-header h4 {
+            color: white;
+            margin: 0;
+        }
+
+        .skill-header i {
+            font-size: 1.2rem;
+        }
+
+        .skill-body {
+            padding: 1rem;
+            background: white;
+        }
+
+        .skill-example {
+            margin-top: 0.75rem;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            border-left: 3px solid #4a6fa5;
+        }
+
+        .skill-mechanics {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f0f7ff;
+            border-radius: 8px;
+        }
+
+        .formula-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .formula-box span {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .formula {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .modifier {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .proficiency {
+            background: #28a745;
+            color: white;
+        }
+
+        .dc {
+            background: #dc3545;
+            color: white;
+        }
+
+        .ownership-rules {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .ownership-rules .rule {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem;
+            background: rgba(255,255,255,0.7);
+            border-radius: 4px;
+        }
+
+        /* Стили для социального взаимодействия */
+        .social-flow {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 30px;
+            height: 30px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .approach-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .approach-options .option {
+            padding: 0.75rem;
+            border-radius: 6px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .approach-options .option i {
+            font-size: 1.2rem;
+        }
+
+        .approach-options .option span {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .contest-mechanics {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .player-side, .npc-side {
+            text-align: center;
+            padding: 1rem;
+            border-radius: 8px;
+            background: #f8f9fa;
+        }
+
+        .vs-circle {
+            width: 40px;
+            height: 40px;
+            background: #dc3545;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .social-results {
+            margin: 2rem 0;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .result {
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .success {
+            background: #e8f5e9;
+            border-left: 4px solid #28a745;
+        }
+
+        .partial {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+
+        .failure {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        .gm-tips {
+            margin: 2rem 0;
+        }
+
+        .tips-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tip-card {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .tip-card i {
+            font-size: 1.5rem;
+            color: #4a6fa5;
+            margin-top: 0.3rem;
+        }
+
+        .social-example {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .scene-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .scene-step {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .step-marker {
+            width: 25px;
+            height: 25px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .step-content {
+            flex: 1;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .social-flow {
+                flex-direction: column;
+            }
+
+            .contest-mechanics {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+
     <section id="saves">
-        <h2>4. Спасброски</h2>
+        <h2><i class="fas fa-shield-alt"></i> Спасброски</h2>
 
         <div class="rule-card">
-            <h3>Когда применять</h3>
-            <ul>
-                <li><strong>Физическая угроза:</strong> ловушка — спасбросок Ловкости.</li>
-                <li><strong>Магия/яд:</strong> спасбросок Телосложения.</li>
-                <li><strong>Ментальные атаки:</strong> спасбросок Мудрости или Харизмы.</li>
-                <li><strong>Сила:</strong> попытка сбросить — спасбросок Силы или проверка STR.</li>
-            </ul>
-            <p>ГМ объявляет: <code>“Спасбросок Ловкости DC 13”</code> и т.п.</p>
+            <h3><i class="fas fa-bolt"></i> Когда применять спасброски</h3>
+
+            <div class="saves-grid">
+                <div class="save-type">
+                    <div class="save-icon" style="background-color: #28a745;">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <h4>Ловкость (DEX)</h4>
+                    <ul>
+                        <li>Уклонение от ловушек</li>
+                        <li>Падающие камни/предметы</li>
+                        <li>Огненные шары</li>
+                    </ul>
+                    <div class="example">
+                        <strong>Пример:</strong> "Ловушка стреляет стрелами — спасбросок Ловкости DC 13"
+                    </div>
+                </div>
+
+                <div class="save-type">
+                    <div class="save-icon" style="background-color: #dc3545;">
+                        <i class="fas fa-skull"></i>
+                    </div>
+                    <h4>Телосложение (CON)</h4>
+                    <ul>
+                        <li>Яды и болезни</li>
+                        <li>Удушающие газы</li>
+                        <li>Экстремальные температуры</li>
+                    </ul>
+                    <div class="example">
+                        <strong>Пример:</strong> "Вы вдыхаете странный газ — спасбросок Телосложения DC 12"
+                    </div>
+                </div>
+
+                <div class="save-type">
+                    <div class="save-icon" style="background-color: #6f42c1;">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4>Мудрость (WIS)</h4>
+                    <ul>
+                        <li>Ментальные атаки</li>
+                        <li>Очарование/страх</li>
+                        <li>Иллюзии</li>
+                    </ul>
+                    <div class="example">
+                        <strong>Пример:</strong> "Волшебник пытается вас очаровать — спасбросок Мудрости DC 14"
+                    </div>
+                </div>
+
+                <div class="save-type">
+                    <div class="save-icon" style="background-color: #17a2b8;">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h4>Сила (STR)</h4>
+                    <ul>
+                        <li>Сопротивление ветру</li>
+                        <li>Удержание на месте</li>
+                        <li>Падение с высоты</li>
+                    </ul>
+                    <div class="example">
+                        <strong>Пример:</strong> "Вас сбивает с ног волна — спасбросок Силы DC 11"
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="rule-card">
-            <h3>Механика</h3>
-            <p>Бросок: <code>d20 + модификатор характеристики +2</code> (если есть владение). Сравнивается с DC.</p>
-            <ul>
-                <li><strong>Успех:</strong> частичный эффект или избежание.</li>
-                <li><strong>Провал:</strong> полный эффект. Можно добавить вторичную проверку с помехой.</li>
-            </ul>
-            <p>Для упрощения: успех = половина, провал = полный эффект.</p>
-        </div>
+            <h3><i class="fas fa-dice-d20"></i> Механика спасбросков</h3>
 
+            <div class="save-mechanics">
+                <div class="formula-block">
+                    <div class="formula-line">
+                        <span class="part dice">d20</span>
+                        <span class="operator">+</span>
+                        <span class="part modifier">Мод. характеристики</span>
+                        <span class="operator">+</span>
+                        <span class="part proficiency">2 (если владеет)</span>
+                        <span class="operator">≥</span>
+                        <span class="part dc">DC</span>
+                    </div>
+                    <div class="formula-label">Базовая формула спасброска</div>
+                </div>
+
+                <div class="results-comparison">
+                    <div class="result-box success">
+                        <h4><i class="fas fa-check-circle"></i> Успех</h4>
+                        <p>Персонаж получает частичный эффект:</p>
+                        <ul>
+                            <li>Половина урона</li>
+                            <li>Сокращенная длительность</li>
+                            <li>Ослабленный эффект</li>
+                        </ul>
+                        <div class="example">
+                            "Вы успешно увернулись — получаете 3 урона вместо 6"
+                        </div>
+                    </div>
+
+                    <div class="result-box failure">
+                        <h4><i class="fas fa-times-circle"></i> Провал</h4>
+                        <p>Персонаж получает полный эффект:</p>
+                        <ul>
+                            <li>Полный урон</li>
+                            <li>Полная длительность</li>
+                            <li>Максимальный эффект</li>
+                        </ul>
+                        <div class="example">
+                            "Вы не успеваете увернуться — получаете 6 урона"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="save-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Советы для ГМа</h4>
+                    <div class="tips-grid">
+                        <div class="tip">
+                            <i class="fas fa-volume-up"></i>
+                            <p>Чётко объявляйте тип спасброска и DC перед броском</p>
+                        </div>
+                        <div class="tip">
+                            <i class="fas fa-adjust"></i>
+                            <p>При частичном успехе опишите, как персонаж смягчает удар</p>
+                        </div>
+                        <div class="tip">
+                            <i class="fas fa-user-friends"></i>
+                            <p>Разрешайте союзникам помогать (давать преимущество)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section id="magic">
-        <h2>5. Магия и заклинания</h2>
+        <h2><i class="fas fa-hat-wizard"></i> Магия и заклинания</h2>
+
         <div class="rule-card">
-            <h3>Ограничение числа заклинаний</h3>
-            <p>У каждого заклинателя заранее прописан пул заклинаний (3–4), которые можно использовать за сессию.</p>
-            <ul>
-                <li>Слоты уровней не отслеживаются.</li>
-                <li>Можно восстановить одно заклинание в коротком отдыхе (необязательно).</li>
-            </ul>
+            <h3><i class="fas fa-vial"></i> Система заклинаний</h3>
+
+            <div class="spell-system">
+                <div class="spell-rule">
+                    <div class="rule-icon">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <h4>Без слотов</h4>
+                    <p>Заклинатели имеют фиксированное количество использований каждого заклинания за сессию</p>
+                    <div class="example">
+                        <strong>Пример:</strong> "3 исцеляющих, 2 атакующих, 1 утилитарное"
+                    </div>
+                </div>
+
+                <div class="spell-rule">
+                    <div class="rule-icon">
+                        <i class="fas fa-redo"></i>
+                    </div>
+                    <h4>Восстановление</h4>
+                    <p>В коротком отдыхе (5-10 мин) можно восстановить 1 использование заклинания</p>
+                </div>
+
+                <div class="spell-rule">
+                    <div class="rule-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h4>3 категории</h4>
+                    <p>Все заклинания делятся на: атакующие, исцеляющие и утилитарные</p>
+                </div>
+            </div>
         </div>
+
         <div class="rule-card">
-            <h3>Категории заклинаний</h3>
-            <ul>
-                <li><strong>Атакующие:</strong> наносят урон. Бросок атаки или спасбросок цели. Урон 1d6 или 2d6.</li>
-                <li><strong>Исцеляющие:</strong> восстанавливают HP. Обычно 1d6.</li>
-                <li><strong>Утилитарные:</strong> контроль, свет, замедление. Простые проверки или автоматические эффекты.</li>
-            </ul>
+            <h3><i class="fas fa-fire"></i> Типы заклинаний</h3>
+
+            <div class="spell-types">
+                <div class="spell-type offensive">
+                    <div class="type-header">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Атакующие</h4>
+                    </div>
+                    <div class="type-body">
+                        <div class="mechanics">
+                            <h5>Механика:</h5>
+                            <div class="option">
+                                <input type="radio" id="attack-roll" name="attack-type" checked>
+                                <label for="attack-roll">
+                                    <strong>Бросок атаки:</strong> d20 + бонус vs AC
+                                </label>
+                            </div>
+                            <div class="option">
+                                <input type="radio" id="save-dc" name="attack-type">
+                                <label for="save-dc">
+                                    <strong>Спасбросок:</strong> цель делает спасбросок vs DC
+                                </label>
+                            </div>
+                        </div>
+                        <div class="damage">
+                            <h5>Урон:</h5>
+                            <div class="dice-selector">
+                                <span class="dice">1d6</span>
+                                <span class="or">или</span>
+                                <span class="dice">2d6</span>
+                            </div>
+                        </div>
+                        <div class="example">
+                            <strong>Пример:</strong> "Огненный шар — цель делает спасбросок Ловкости DC 13, при провале 2d6 урона"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spell-type healing">
+                    <div class="type-header">
+                        <i class="fas fa-heart"></i>
+                        <h4>Исцеляющие</h4>
+                    </div>
+                    <div class="type-body">
+                        <div class="heal-amount">
+                            <h5>Исцеление:</h5>
+                            <span class="dice">1d6</span>
+                            <span class="plus">+</span>
+                            <span class="mod">мод.</span>
+                        </div>
+                        <div class="special">
+                            <h5>Особенности:</h5>
+                            <ul>
+                                <li>Может вернуть сознание (1 HP)</li>
+                                <li>Не требует спасброска</li>
+                                <li>Можно усилить зельями</li>
+                            </ul>
+                        </div>
+                        <div class="example">
+                            <strong>Пример:</strong> "Лечение ран — +1d6+2 HP выбранному существу"
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spell-type utility">
+                    <div class="type-header">
+                        <i class="fas fa-magic"></i>
+                        <h4>Утилитарные</h4>
+                    </div>
+                    <div class="type-body">
+                        <div class="effects">
+                            <h5>Эффекты:</h5>
+                            <div class="effect-tags">
+                                <span class="tag">Ослепление</span>
+                                <span class="tag">Замедление</span>
+                                <span class="tag">Свет</span>
+                                <span class="tag">Открытие</span>
+                                <span class="tag">Иллюзия</span>
+                            </div>
+                        </div>
+                        <div class="mechanics">
+                            <h5>Механика:</h5>
+                            <p>Либо автоматический эффект, либо спасбросок цели</p>
+                        </div>
+                        <div class="example">
+                            <strong>Пример:</strong> "Свет — освещает 10м на 1 час (без броска)"
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div class="rule-card">
-            <h3>Броски и эффекты</h3>
-            <p><strong>Атакующие:</strong> d20 + бонус атаки заклинанием ≥ AC цели или спасбросок цели DC 13.</p>
-            <p><strong>Исцеление:</strong> 1d6 HP. При 0 HP — возвращение в бой.</p>
-            <p><strong>Утилитарные:</strong> эффект описывается словами. Примеры: ослепление, контроль, свет.</p>
-        </div>
-        <div class="rule-card">
-            <h3>Сохранение баланса</h3>
-            <ul>
-                <li>Не давайте слишком сильные заклинания.</li>
-                <li>Маг может получать утилитарные предметы или участвовать в загадках.</li>
-            </ul>
+            <h3><i class="fas fa-balance-scale"></i> Баланс магии</h3>
+
+            <div class="balance-tips">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <div class="tip-content">
+                        <h4>Магические предметы</h4>
+                        <p>Если заклинатель слаб — дайте волшебный предмет с 1-2 зарядами</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <div class="tip-content">
+                        <h4>Загадки и знания</h4>
+                        <p>Используйте навык Знания (INT) для решения головоломок</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="tip-content">
+                        <h4>Социальные сцены</h4>
+                        <p>Заклинатели могут участвовать в переговорах и допросах</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spell-table">
+                <h4><i class="fas fa-scroll"></i> Примеры заклинаний</h4>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Название</th>
+                        <th>Тип</th>
+                        <th>Эффект</th>
+                        <th>Использований</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Огненный шар</td>
+                        <td>Атакующее</td>
+                        <td>2d6 урона, спасбросок DEX DC 13</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Лечение ран</td>
+                        <td>Исцеляющее</td>
+                        <td>1d6+2 HP</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Волшебный замок</td>
+                        <td>Утилитарное</td>
+                        <td>Открывает простые замки</td>
+                        <td>1</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 
-    <section id="items">
-        <h2>6. Снаряжение и предметы</h2>
+    <style>
+        /* Стили для секции спасбросков */
+        .saves-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .save-type {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .save-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .save-type h4 {
+            margin-top: 0;
+            color: #212529;
+        }
+
+        .save-type ul {
+            padding-left: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .save-type li {
+            margin-bottom: 0.5rem;
+        }
+
+        .save-mechanics {
+            margin-top: 2rem;
+        }
+
+        .formula-block {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .formula-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .formula-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .formula-line .part {
+            padding: 0.5rem 0.8rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .dice {
+            background: #ffc107;
+            color: #212529;
+        }
+
+        .modifier {
+            background: #17a2b8;
+            color: white;
+        }
+
+        .proficiency {
+            background: #28a745;
+            color: white;
+        }
+
+        .dc {
+            background: #dc3545;
+            color: white;
+        }
+
+        .operator {
+            font-weight: bold;
+        }
+
+        .results-comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .result-box {
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .success {
+            background: #e8f5e9;
+            border-left: 4px solid #28a745;
+        }
+
+        .failure {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        .result-box h4 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .save-tips {
+            margin-top: 2rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .tip i {
+            font-size: 1.2rem;
+            color: #4a6fa5;
+            margin-top: 0.2rem;
+        }
+
+        /* Стили для секции магии */
+        .spell-system {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .spell-rule {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .rule-icon {
+            width: 50px;
+            height: 50px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .spell-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .spell-type {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .type-header {
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+        }
+
+        .type-header h4 {
+            margin: 0;
+            color: white;
+        }
+
+        .type-header i {
+            font-size: 1.5rem;
+        }
+
+        .offensive .type-header {
+            background: #dc3545;
+        }
+
+        .healing .type-header {
+            background: #28a745;
+        }
+
+        .utility .type-header {
+            background: #6f42c1;
+        }
+
+        .type-body {
+            padding: 1.5rem;
+            background: white;
+        }
+
+        .option {
+            margin-bottom: 0.75rem;
+        }
+
+        .option input[type="radio"] {
+            display: none;
+        }
+
+        .option label {
+            display: block;
+            padding: 0.75rem;
+            border-radius: 6px;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option input[type="radio"]:checked + label {
+            background: #e2f0fd;
+            border-left: 4px solid #4a6fa5;
+        }
+
+        .dice-selector {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .dice {
+            padding: 0.5rem 1rem;
+            background: #ffc107;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .or {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .heal-amount {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .plus {
+            font-weight: bold;
+        }
+
+        .mod {
+            font-style: italic;
+            color: #6c757d;
+        }
+
+        .effect-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tag {
+            padding: 0.3rem 0.8rem;
+            background: #f0f7ff;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #4a6fa5;
+        }
+
+        .balance-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .tip-card {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .tip-icon {
+            width: 40px;
+            height: 40px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .spell-table {
+            margin-top: 2rem;
+            overflow-x: auto;
+        }
+
+        .spell-table table {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        .spell-table th {
+            background: #4a6fa5;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .saves-grid, .spell-system, .spell-types, .balance-tips {
+                grid-template-columns: 1fr;
+            }
+
+            .results-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <section id="equipment">
+        <h2><i class="fas fa-backpack"></i> Снаряжение и предметы</h2>
 
         <div class="rule-card">
-            <h3>Оружие</h3>
-            <p>Обычно наносит <code>1d6</code> или <code>1d6 + модификатор</code>. В листе указано: «Атака +X, урон 1d6».</p>
-            <p>Варианты: меч, топор, лук, кинжал, посох. Лук — дальний бой (до 15 м или 5 клеток).</p>
-            <p>Боезапас: не отслеживается или ограничен до 5 стрел (по желанию).</p>
+            <h3><i class="fas fa-sword"></i> Оружие</h3>
+
+            <div class="weapons-system">
+                <div class="damage-rule">
+                    <div class="icon-box">
+                        <i class="fas fa-dice"></i>
+                    </div>
+                    <h4>Урон</h4>
+                    <p>Все оружия наносят <span class="dice">1d6</span> урона (или <span class="dice">1d6 + мод.</span> если указано)</p>
+                </div>
+
+                <div class="weapons-grid">
+                    <div class="weapon-card">
+                        <div class="weapon-icon">
+                            <i class="fas fa-sword"></i>
+                        </div>
+                        <h4>Меч</h4>
+                        <div class="stats">
+                            <span class="attack">Атака: +5</span>
+                            <span class="damage">Урон: 1d6+2</span>
+                        </div>
+                        <div class="range">Ближний бой</div>
+                    </div>
+
+                    <div class="weapon-card">
+                        <div class="weapon-icon">
+                            <i class="fas fa-axe"></i>
+                        </div>
+                        <h4>Топор</h4>
+                        <div class="stats">
+                            <span class="attack">Атака: +4</span>
+                            <span class="damage">Урон: 1d6+3</span>
+                        </div>
+                        <div class="range">Ближний бой</div>
+                    </div>
+
+                    <div class="weapon-card">
+                        <div class="weapon-icon">
+                            <i class="fas fa-bow-arrow"></i>
+                        </div>
+                        <h4>Лук</h4>
+                        <div class="stats">
+                            <span class="attack">Атака: +6</span>
+                            <span class="damage">Урон: 1d6</span>
+                        </div>
+                        <div class="range">Дальность: 15м (5 клеток)</div>
+                        <div class="ammo">Стрелы: 5</div>
+                    </div>
+
+                    <div class="weapon-card">
+                        <div class="weapon-icon">
+                            <i class="fas fa-knife"></i>
+                        </div>
+                        <h4>Кинжал</h4>
+                        <div class="stats">
+                            <span class="attack">Атака: +7</span>
+                            <span class="damage">Урон: 1d6</span>
+                        </div>
+                        <div class="range">Ближний бой</div>
+                    </div>
+                </div>
+
+                <div class="simplification-tip">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>Для упрощения можно использовать одинаковый урон <span class="dice">1d6</span> для всех видов оружия</p>
+                </div>
+            </div>
         </div>
 
         <div class="rule-card">
-            <h3>Броня и укрытия</h3>
-            <p>AC указан в листе. Укрытие даёт преимущество к спасброскам Ловкости или даёт помеху атакам врагов.</p>
-            <p>Можно упростить: «Я прячусь» → врагам сложнее попасть (помеха).</p>
+            <h3><i class="fas fa-shield-alt"></i> Броня и укрытия</h3>
+
+            <div class="armor-system">
+                <div class="armor-visual">
+                    <div class="ac-display">
+                        <span class="label">Класс брони:</span>
+                        <span class="value">AC 15</span>
+                    </div>
+                    <div class="ac-breakdown">
+                        <div class="part">
+                            <span class="name">База</span>
+                            <span class="value">10</span>
+                        </div>
+                        <div class="part">
+                            <span class="name">Броня</span>
+                            <span class="value">+3</span>
+                        </div>
+                        <div class="part">
+                            <span class="name">Щит</span>
+                            <span class="value">+2</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cover-rules">
+                    <h4><i class="fas fa-tree"></i> Укрытия</h4>
+                    <div class="options">
+                        <div class="option">
+                            <input type="radio" id="simple-cover" name="cover" checked>
+                            <label for="simple-cover">
+                                <strong>Простая система:</strong> "Я прячусь" → помеха атакам врагов
+                            </label>
+                        </div>
+                        <div class="option">
+                            <input type="radio" id="advanced-cover" name="cover">
+                            <label for="advanced-cover">
+                                <strong>Продвинутая:</strong> Преимущество на спасброски Ловкости
+                            </label>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <strong>Пример:</strong> "Вы укрылись за колонной - атаки по вам совершаются с помехой"
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="rule-card">
-            <h3>Магические предметы и зелья</h3>
-            <ul>
-                <li><strong>Зелье лечения:</strong> +1d6 HP. Используется как действие или бонусное действие.</li>
-                <li><strong>Зелье невидимости:</strong> преимущество на Stealth на 1 ход.</li>
-                <li><strong>Свиток огненного шара:</strong> 2d6 урона, спасбросок Ловкости DC 13 на половину.</li>
-            </ul>
-        </div>
+            <h3><i class="fas fa-flask"></i> Магические предметы</h3>
 
-        <div class="rule-card">
-            <h3>Инвентарь</h3>
-            <p>Минимум предметов. Если игрок хочет взять что-то новое — уточните: есть ли сумка?</p>
-            <p>Если да — можно взять; если нет — помеха или ограничение.</p>
-        </div>
+            <div class="magic-items">
+                <div class="item-card">
+                    <div class="item-icon healing">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="item-info">
+                        <h4>Зелье лечения</h4>
+                        <div class="effect">
+                            <span class="dice">1d6</span> HP
+                        </div>
+                        <div class="usage">
+                            <i class="fas fa-hourglass"></i> Действие/Бонус
+                        </div>
+                    </div>
+                </div>
 
+                <div class="item-card">
+                    <div class="item-icon stealth">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                    <div class="item-info">
+                        <h4>Зелье невидимости</h4>
+                        <div class="effect">
+                            Преимущество на Stealth
+                        </div>
+                        <div class="usage">
+                            <i class="fas fa-hourglass"></i> 1 ход
+                        </div>
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-icon offensive">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <div class="item-info">
+                        <h4>Свиток огненного шара</h4>
+                        <div class="effect">
+                            <span class="dice">2d6</span> урона (спасбросок DEX DC 13)
+                        </div>
+                        <div class="usage">
+                            <i class="fas fa-times-circle"></i> Одноразовый
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inventory-tip">
+                <i class="fas fa-box-open"></i>
+                <p>Для ваншота можно не учитывать вес и количество предметов, если это не критично для сюжета</p>
+            </div>
+        </div>
     </section>
 
-    <section id="healing">
-        <h2>7. Здоровье и лечение</h2>
+    <section id="health">
+        <h2><i class="fas fa-heartbeat"></i> Здоровье и лечение</h2>
 
         <div class="rule-card">
-            <h3>Восстановление HP</h3>
-            <p><strong>Заклинания</strong> и <strong>зелья</strong> восстанавливают HP (обычно <code>1d6</code>).</p>
-            <p><strong>Короткий отдых</strong> (10–15 мин) может восстановить HP (например, <code>1d6</code>), если ГМ разрешит.</p>
-            <p>Целитель-NPC может лечить за условие, но лучше ограничить количество исцелений.</p>
+            <h3><i class="fas fa-heart"></i> Восстановление HP</h3>
+
+            <div class="healing-system">
+                <div class="healing-methods">
+                    <div class="method">
+                        <div class="method-icon">
+                            <i class="fas fa-magic"></i>
+                        </div>
+                        <h4>Заклинания</h4>
+                        <p>Исцеляющие заклинания восстанавливают <span class="dice">1d6</span> HP</p>
+                    </div>
+
+                    <div class="method">
+                        <div class="method-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h4>Зелья</h4>
+                        <p>Зелье лечения - <span class="dice">1d6</span> HP (действие/бонус)</p>
+                    </div>
+
+                    <div class="method">
+                        <div class="method-icon">
+                            <i class="fas fa-campground"></i>
+                        </div>
+                        <h4>Отдых</h4>
+                        <p>Короткий отдых 10-15 мин: <span class="dice">1d6</span> HP (по решению ГМа)</p>
+                    </div>
+                </div>
+
+                <div class="rest-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>Ограничьте исцеление, чтобы сохранить ощущение опасности!</p>
+                </div>
+            </div>
         </div>
 
         <div class="rule-card">
-            <h3>Последствия 0 HP</h3>
-            <ul>
-                <li><strong>Упрощённо:</strong> персонаж выведен из боя.</li>
-                <li>Другой игрок может потратить действие, чтобы попытаться поднять: <code>Medicine или CON DC 10</code>.</li>
-                <li>Успех — персонаж возвращается с <code>1 HP</code>. Провал — остаётся выведенным.</li>
-            </ul>
-            <p>Это стимулирует командную работу и поддержку.</p>
-        </div>
+            <h3><i class="fas fa-skull"></i> Падение до 0 HP</h3>
 
+            <div class="death-system">
+                <div class="option-card">
+                    <h4>Упрощённая система</h4>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <p>Персонаж падает без сознания</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <p>Союзник может помочь (действие + проверка)</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <p>Успех - 1 HP, провал - выбывает</p>
+                        </div>
+                    </div>
+                    <div class="example">
+                        <strong>Проверка:</strong> Medicine или CON DC 10
+                    </div>
+                </div>
+
+                <div class="teamwork-tip">
+                    <i class="fas fa-users"></i>
+                    <p>Такая система стимулирует командную работу и тактические решения</p>
+                </div>
+
+                <div class="death-alternative">
+                    <h4>Альтернативный вариант</h4>
+                    <div class="alternative-steps">
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-dice"></i>
+                            </div>
+                            <p>При падении до 0 HP: спасбросок CON DC 10</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <p>Успех - стабилен (0 HP), провал - смерть</p>
+                        </div>
+                    </div>
+                    <div class="warning">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>Для ваншота лучше использовать упрощённую систему!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="xp">
-        <h2>8. Уровни и опыт</h2>
+    <style>
+        /* Стили для секции снаряжения */
+        .weapons-system {
+            margin-top: 1.5rem;
+        }
+
+        .damage-rule {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .weapons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .weapon-card {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .weapon-icon {
+            font-size: 2rem;
+            color: #4a6fa5;
+            margin-bottom: 1rem;
+        }
+
+        .weapon-card h4 {
+            margin: 0.5rem 0;
+        }
+
+        .stats {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .attack, .damage {
+            padding: 0.3rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .attack {
+            background: #e2f0fd;
+            color: #166088;
+        }
+
+        .damage {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .range, .ammo {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+
+        .simplification-tip {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #e8f5e9;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .simplification-tip i {
+            color: #28a745;
+            font-size: 1.5rem;
+        }
+
+        /* Стили для брони и укрытий */
+        .armor-system {
+            margin-top: 1.5rem;
+        }
+
+        .armor-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .ac-display {
+            padding: 1rem 2rem;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .ac-breakdown {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .part {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .name {
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+
+        .value {
+            font-weight: bold;
+        }
+
+        .cover-rules {
+            margin-top: 2rem;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .option input[type="radio"] {
+            display: none;
+        }
+
+        .option label {
+            display: block;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option input[type="radio"]:checked + label {
+            background: #e2f0fd;
+            border-left: 4px solid #4a6fa5;
+        }
+
+        /* Стили для магических предметов */
+        .magic-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .item-card {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            align-items: center;
+        }
+
+        .item-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .healing {
+            background: #dc3545;
+        }
+
+        .stealth {
+            background: #6f42c1;
+        }
+
+        .offensive {
+            background: #fd7e14;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .effect {
+            margin: 0.5rem 0;
+            font-weight: bold;
+        }
+
+        .usage {
+            font-size: 0.8rem;
+            color: #6c757d;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .inventory-tip {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #fff3cd;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .inventory-tip i {
+            color: #ffc107;
+            font-size: 1.5rem;
+        }
+
+        /* Стили для секции здоровья */
+        .healing-system {
+            margin-top: 1.5rem;
+        }
+
+        .healing-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .method {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .method-icon {
+            width: 50px;
+            height: 50px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.2rem;
+        }
+
+        .rest-warning {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8d7da;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .rest-warning i {
+            color: #dc3545;
+            font-size: 1.5rem;
+        }
+
+        /* Стили для системы смерти */
+        .death-system {
+            margin-top: 1.5rem;
+        }
+
+        .option-card {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .teamwork-tip {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #e2f0fd;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        .teamwork-tip i {
+            color: #166088;
+            font-size: 1.5rem;
+        }
+
+        .death-alternative {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .alternative-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .step-icon {
+            width: 30px;
+            height: 30px;
+            background: #6c757d;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .warning {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #fff3cd;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .warning i {
+            color: #ffc107;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .weapons-grid, .healing-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .ac-breakdown {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <!-- Секция советов ГМа -->
+    <section id="gm-tips">
+        <h2><i class="fas fa-book"></i> Процедуры проверок и советы ГМа</h2>
 
         <div class="rule-card">
-            <h3>Для ваншота</h3>
-            <p>Уровни не используются. Персонажи заранее созданы на нужном уровне (обычно 3–4).</p>
-            <p>Опыт не начисляется. Главная награда — финал истории.</p>
+            <h3><i class="fas fa-dice"></i> Когда просить бросок</h3>
+
+            <div class="check-flowchart">
+                <div class="flow-step">
+                    <div class="step-question">
+                        Игрок хочет совершить действие
+                    </div>
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-question">
+                        Есть ли риск/интерес?
+                    </div>
+                    <div class="step-branches">
+                        <div class="branch yes">
+                            <div class="branch-label">Да</div>
+                            <div class="branch-content">
+                                Просим бросок
+                                <div class="example">
+                                    "Бросай Stealth против Perception стражи"
+                                </div>
+                            </div>
+                        </div>
+                        <div class="branch no">
+                            <div class="branch-label">Нет</div>
+                            <div class="branch-content">
+                                Описываем результат
+                                <div class="example">
+                                    "Вы спокойно идёте по пустому коридору"
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="check-types">
+                <h4><i class="fas fa-tasks"></i> Типы ситуаций</h4>
+                <div class="types-grid">
+                    <div class="type-card auto-success">
+                        <h5>Автоматический успех</h5>
+                        <p>Когда действие очевидно выполнимо</p>
+                        <div class="example">
+                            "Поднять лёгкий предмет с пола"
+                        </div>
+                    </div>
+                    <div class="type-card auto-fail">
+                        <h5>Автоматический провал</h5>
+                        <p>Когда действие невозможно</p>
+                        <div class="example">
+                            "Поднять гору голыми руками"
+                        </div>
+                    </div>
+                    <div class="type-card creative">
+                        <h5>Креативное решение</h5>
+                        <p>Требует оценки и возможного бонуса</p>
+                        <div class="example">
+                            "Использую зеркало, чтобы ослепить стражу"
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="rule-card">
-            <h3>При желании — бонусы</h3>
-            <ul>
-                <li>ГМ может вручить <strong>одноразовые преимущества</strong> за удачные решения:</li>
-                <li>Например: «преимущество на проверку», «дополнительное зелье».</li>
-            </ul>
-            <p>Но система XP и уровней не применяется.</p>
+            <h3><i class="fas fa-lightbulb"></i> Преимущество творческих решений</h3>
+
+            <div class="creativity-guide">
+                <div class="guide-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Слушайте игроков</h4>
+                        <p>Поощряйте описания действий: "Как именно ты это делаешь?"</p>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Оценивайте идею</h4>
+                        <p>Если решение умное и логичное — дайте бонус</p>
+                        <div class="bonus-options">
+                            <span class="option">Преимущество</span>
+                            <span class="option">+2 к броску</span>
+                            <span class="option">Снижение DC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Объясняйте решение</h4>
+                        <p>Чётко скажите, почему даёте бонус: "Отличная идея с зеркалом — получаешь преимущество!"</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="creative-examples">
+                <h4><i class="fas fa-theater-masks"></i> Примеры креативных решений</h4>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <div class="situation">
+                            <strong>Ситуация:</strong> Нужно пройти мимо стражи
+                        </div>
+                        <div class="solution">
+                            <strong>Решение:</strong> Отвлечь стражу камнем
+                        </div>
+                        <div class="reward">
+                            <strong>Награда:</strong> Преимущество на Stealth
+                        </div>
+                    </div>
+                    <div class="example-card">
+                        <div class="situation">
+                            <strong>Ситуация:</strong> Запертая дверь
+                        </div>
+                        <div class="solution">
+                            <strong>Решение:</strong> Выбить дверь тараном
+                        </div>
+                        <div class="reward">
+                            <strong>Награда:</strong> DC снижен с 15 до 12
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
+        <div class="rule-card">
+            <h3><i class="fas fa-eye-slash"></i> Тайные броски</h3>
+
+            <div class="secret-rolls">
+                <div class="roll-types">
+                    <div class="type">
+                        <h4>Когда использовать</h4>
+                        <ul>
+                            <li>Поиск ловушек/секретов</li>
+                            <li>Попытки заметить обман</li>
+                            <li>Скрытые действия NPC</li>
+                        </ul>
+                    </div>
+                    <div class="type">
+                        <h4>Как проводить</h4>
+                        <ol>
+                            <li>Попросите модификатор</li>
+                            <li>Бросьте кубик скрытно</li>
+                            <li>Опишите результат без цифр</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="secret-example">
+                    <h4><i class="fas fa-question"></i> Пример сцены</h4>
+                    <div class="scene-flow">
+                        <div class="step">
+                            <div class="step-marker">1</div>
+                            <p><strong>Игрок:</strong> "Осматриваю комнату на предмет ловушек"</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-marker">2</div>
+                            <p><strong>ГМ:</strong> "Какой у тебя модификатор Восприятия?" (игрок называет)</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-marker">3</div>
+                            <p><strong>ГМ:</strong> *бросает скрытно* "Ты не замечаешь ничего подозрительного" (даже если есть ловушка)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="secret-tips">
+                    <h4><i class="fas fa-lightbulb"></i> Советы</h4>
+                    <div class="tips">
+                        <div class="tip">
+                            <i class="fas fa-theater-masks"></i>
+                            <p>Сохраняйте нейтральное выражение лица при бросках</p>
+                        </div>
+                        <div class="tip">
+                            <i class="fas fa-dice"></i>
+                            <p>Иногда делайте "пустые" броски для поддержания напряжения</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="gm">
-        <h2>9. Процедуры проверок и советы ГМу</h2>
+    <style>
+        /* Стили для секции уровней */
+        .no-levels-system {
+            margin-top: 1.5rem;
+        }
 
-        <div class="rule-card">
-            <h3>Когда просить бросок</h3>
-            <ul>
-                <li>Не всё требует броска. Очевидные действия — без броска.</li>
-                <li>Броски — когда есть риск или интересный исход.</li>
-                <li>Если провал — предложите альтернативу или усложнение.</li>
-            </ul>
-        </div>
+        .visual-explanation {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
 
-        <div class="rule-card">
-            <h3>Преимущество творческих решений</h3>
-            <p>За креативные идеи — давайте <strong>преимущество</strong> или снижайте DC.</p>
-            <p>Правила — не догма. ГМ может адаптировать их по ситуации.</p>
-        </div>
+        .character-card {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 200px;
+        }
 
-        <div class="rule-card">
-            <h3>Скрытые броски</h3>
-            <p>Иногда ГМ сам бросает проверку за игрока, не показывая результат:</p>
-            <ul>
-                <li>Если успех — дайте информацию без чисел.</li>
-                <li>Если провал — просто продолжайте сцену.</li>
-            </ul>
-        </div>
+        .character-level {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a6fa5;
+            margin-bottom: 1rem;
+        }
 
-    </section>
+        .character-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
 
-    <section id="cheatsheet">
-        <h2>10. Быстрая шпаргалка</h2>
+        .character-details p {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
 
-        <div class="cheatsheet">
-            <p><strong>Проверка:</strong> <code>d20 + модификатор</code> ≥ DC</p>
-            <p><strong>Атака:</strong> <code>d20 + бонус атаки</code> ≥ AC</p>
-            <p><strong>Спасбросок:</strong> <code>d20 + модификатор + 2 (если владение)</code> ≥ DC</p>
-            <p><strong>Урон:</strong> <code>1d6</code> или <code>1d6 + модификатор</code></p>
-            <p><strong>Исцеление:</strong> <code>1d6</code></p>
-            <p><strong>Преимущество:</strong> 2d20, берём лучший</p>
-            <p><strong>Помеха:</strong> 2d20, берём худший</p>
-            <p><strong>DC:</strong> легко 10, средне 13, сложно 18</p>
-            <p><strong>Скорость:</strong> 6 клеток (~9 м), трудная местность — вдвое меньше</p>
-        </div>
+        .vs-sign {
+            font-size: 2rem;
+            color: #6c757d;
+        }
 
-    </section>
+        .fixed-info {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            max-width: 300px;
+        }
+
+        .simplification-benefits {
+            margin-top: 2rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .benefit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .benefit i {
+            font-size: 2rem;
+            color: #4a6fa5;
+            margin-bottom: 1rem;
+        }
+
+        .rewards-system {
+            margin-top: 3rem;
+        }
+
+        .rewards-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .reward-type {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .reward-icon {
+            width: 50px;
+            height: 50px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .reward-type ul {
+            padding-left: 1.2rem;
+        }
+
+        .reward-type li {
+            margin-bottom: 0.5rem;
+        }
+
+        .reward-example {
+            margin-top: 2rem;
+        }
+
+        .example-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Стили для советов ГМа */
+        .check-flowchart {
+            margin: 2rem 0;
+        }
+
+        .flow-step {
+            margin-bottom: 1.5rem;
+        }
+
+        .step-question {
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .step-arrow {
+            text-align: center;
+            margin: 0.5rem 0;
+            color: #6c757d;
+        }
+
+        .step-branches {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            justify-content: center;
+        }
+
+        .branch {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .branch-label {
+            padding: 0.5rem 1rem;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .branch-content {
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .check-types {
+            margin-top: 2rem;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .type-card {
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .auto-success {
+            background: #e8f5e9;
+            border-left: 4px solid #28a745;
+        }
+
+        .auto-fail {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        .creative {
+            background: #e2f0fd;
+            border-left: 4px solid #4a6fa5;
+        }
+
+        .creativity-guide {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .guide-step {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .bonus-options {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .option {
+            padding: 0.5rem 1rem;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .creative-examples {
+            margin-top: 2rem;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .example-card {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .situation, .solution, .reward {
+            margin-bottom: 1rem;
+        }
+
+        /* Стили для тайных бросков */
+        .secret-rolls {
+            margin-top: 1.5rem;
+        }
+
+        .roll-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .secret-example {
+            margin: 2rem 0;
+        }
+
+        .scene-flow {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .step-marker {
+            width: 30px;
+            height: 30px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .secret-tips {
+            margin-top: 2rem;
+        }
+
+        .tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .tip i {
+            font-size: 1.5rem;
+            color: #4a6fa5;
+        }
+
+        @media (max-width: 768px) {
+            .visual-explanation {
+                flex-direction: column;
+            }
+
+            .benefits-grid, .rewards-types, .types-grid, .examples-grid, .tips {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-step {
+                flex-direction: column;
+            }
+        }
+    </style>
 </main>
+
+<script>
+    // Аккордеоны
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const accordion = header.parentElement;
+            accordion.classList.toggle('active');
+
+            const icon = header.querySelector('i');
+            if (accordion.classList.contains('active')) {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            } else {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            }
+        });
+    });
+
+    // Калькулятор модификатора
+    function calculateModifier() {
+        const score = parseInt(document.getElementById('ability-score').value);
+        const modifier = Math.floor((score - 10) / 2);
+        document.getElementById('modifier-result').textContent = `Модификатор: ${modifier >= 0 ? '+' : ''}${modifier}`;
+    }
+
+    // Автоматический расчёт при загрузке
+    calculateModifier();
+</script>
 </body>
 </html>
