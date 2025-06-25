@@ -2486,7 +2486,6 @@
         }
     </style>
 
-    <!-- Секция советов ГМа -->
     <section id="gm-tips">
         <h2><i class="fas fa-book"></i> Процедуры проверок и советы ГМа</h2>
 
@@ -3037,6 +3036,1081 @@
             }
 
             .guide-step {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <section id="encounters">
+        <h2><i class="fas fa-swords"></i> Проектирование боевых встреч</h2>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-balance-scale"></i> Баланс сложности</h3>
+
+            <div class="encounter-builder">
+                <div class="difficulty-levels">
+                    <div class="level-card">
+                        <div class="level-icon easy">
+                            <i class="fas fa-feather-alt"></i>
+                        </div>
+                        <h4>Лёгкий бой</h4>
+                        <ul>
+                            <li>1-2 противника</li>
+                            <li>HP: 8-12</li>
+                            <li>Атака: +2</li>
+                            <li>Урон: 1d6</li>
+                        </ul>
+                        <div class="purpose">
+                            <strong>Цель:</strong> Разминка, тест способностей
+                        </div>
+                    </div>
+
+                    <div class="level-card">
+                        <div class="level-icon medium">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Средний бой</h4>
+                        <ul>
+                            <li>3-4 противника</li>
+                            <li>HP: 10-15</li>
+                            <li>Атака: +3</li>
+                            <li>Урон: 1d6</li>
+                        </ul>
+                        <div class="purpose">
+                            <strong>Цель:</strong> Основные сражения
+                        </div>
+                    </div>
+
+                    <div class="level-card">
+                        <div class="level-icon hard">
+                            <i class="fas fa-skull"></i>
+                        </div>
+                        <h4>Босс-бой</h4>
+                        <ul>
+                            <li>1 босс + 1-2 моба</li>
+                            <li>HP: 25-35</li>
+                            <li>Атака: +4 (+6 спец)</li>
+                            <li>Урон: 1d6+1 (2d6 спец)</li>
+                        </ul>
+                        <div class="purpose">
+                            <strong>Цель:</strong> Кульминационное сражение
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dynamic-adjustment">
+                    <h4><i class="fas fa-sliders-h"></i> Регулировка на лету</h4>
+                    <div class="adjustment-options">
+                        <div class="option too-easy">
+                            <h5>Слишком легко?</h5>
+                            <ul>
+                                <li>Добавьте 1-2 противников</li>
+                                <li>Дайте бонус +2 к атаке</li>
+                                <li>Активируйте спецспособность</li>
+                            </ul>
+                        </div>
+                        <div class="option too-hard">
+                            <h5>Слишком сложно?</h5>
+                            <ul>
+                                <li>Уменьшите HP врагов на 25%</li>
+                                <li>NPC предлагает помощь</li>
+                                <li>Найдите сюжетный повод для отступления</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-hourglass-half"></i> Управление временем боя</h3>
+
+            <div class="time-management">
+                <div class="time-target">
+                    <div class="time-icon">
+                        <i class="fas fa-stopwatch"></i>
+                    </div>
+                    <div class="time-info">
+                        <h4>Цель: 5-7 минут на раунд</h4>
+                        <p>Для группы из 6 игроков + NPC</p>
+                    </div>
+                </div>
+
+                <div class="acceleration-tips">
+                    <h4><i class="fas fa-tachometer-alt"></i> Как ускорить бой:</h4>
+                    <div class="tips-grid">
+                        <div class="tip">
+                            <i class="fas fa-user-clock"></i>
+                            <p>Игроки готовят ходы заранее</p>
+                        </div>
+                        <div class="tip">
+                            <i class="fas fa-gavel"></i>
+                            <p>Групповые броски инициативы</p>
+                        </div>
+                        <div class="tip">
+                            <i class="fas fa-comment-alt"></i>
+                            <p>Краткие описания действий</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-cheatsheet">
+                    <h4><i class="fas fa-list-ul"></i> Шпаргалка действий</h4>
+                    <div class="actions-grid">
+                        <div class="action">
+                            <div class="action-header">
+                                <i class="fas fa-crosshairs"></i>
+                                <h5>Attack</h5>
+                            </div>
+                            <p>Стандартная атака: d20 + бонус vs AC</p>
+                        </div>
+                        <div class="action">
+                            <div class="action-header">
+                                <i class="fas fa-running"></i>
+                                <h5>Dash</h5>
+                            </div>
+                            <p>Удвоенная скорость перемещения</p>
+                        </div>
+                        <div class="action">
+                            <div class="action-header">
+                                <i class="fas fa-user-shield"></i>
+                                <h5>Dodge</h5>
+                            </div>
+                            <p>Помеха атакам противника</p>
+                        </div>
+                        <div class="action">
+                            <div class="action-header">
+                                <i class="fas fa-hands-helping"></i>
+                                <h5>Help</h5>
+                            </div>
+                            <p>Даёт преимущество союзнику</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-comments"></i> Нестандартные действия</h3>
+
+            <div class="non-combat-actions">
+                <div class="action-examples">
+                    <h4><i class="fas fa-lightbulb"></i> Примеры:</h4>
+                    <div class="examples">
+                        <div class="example">
+                            <strong>Переговоры:</strong> "Я сдаюсь!" → проверка Persuasion
+                        </div>
+                        <div class="example">
+                            <strong>Тактика:</strong> "Опрокидываем стол для укрытия" → проверка Strength
+                        </div>
+                        <div class="example">
+                            <strong>Креатив:</strong> "Ослепляю факелом" → спасбросок DEX врага
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefits">
+                    <h4><i class="fas fa-star"></i> Преимущества:</h4>
+                    <ul>
+                        <li>Добавляет глубину бою</li>
+                        <li>Поощряет ролевую игру</li>
+                        <li>Даёт альтернативы простой рубке</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Стили для проектирования боев */
+        .encounter-builder {
+            margin-top: 1.5rem;
+        }
+
+        .difficulty-levels {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .level-card {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .level-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .easy {
+            background: #28a745;
+        }
+
+        .medium {
+            background: #ffc107;
+        }
+
+        .hard {
+            background: #dc3545;
+        }
+
+        .level-card ul {
+            padding-left: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .purpose {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .boss-abilities {
+            margin: 2rem 0;
+        }
+
+        .abilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .ability {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .ability-icon {
+            width: 40px;
+            height: 40px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .dynamic-adjustment {
+            margin-top: 2rem;
+        }
+
+        .adjustment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .option {
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .too-easy {
+            background: #e8f5e9;
+            border-left: 4px solid #28a745;
+        }
+
+        .too-hard {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        /* Стили для управления временем боя */
+        .time-management {
+            margin-top: 1.5rem;
+        }
+
+        .time-target {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .time-icon {
+            width: 60px;
+            height: 60px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .acceleration-tips {
+            margin: 2rem 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .tip i {
+            font-size: 1.5rem;
+            color: #4a6fa5;
+            margin-bottom: 1rem;
+        }
+
+        .action-cheatsheet {
+            margin-top: 2rem;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .action {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .action-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .action-header i {
+            font-size: 1.5rem;
+            color: #4a6fa5;
+        }
+
+        .non-combat-actions {
+            margin-top: 1.5rem;
+        }
+
+        .action-examples {
+            margin-bottom: 2rem;
+        }
+
+        .examples {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .example {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 4px solid #4a6fa5;
+        }
+
+        /* Стили для управления ресурсами */
+        .session-timeline {
+            margin: 2rem 0;
+        }
+
+        .phase {
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #4a6fa5;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .phase-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .phase-number {
+            width: 30px;
+            height: 30px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .quick-reference {
+            margin-top: 2rem;
+        }
+
+        .reference-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .ref-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .ref-item i {
+            font-size: 1.5rem;
+            color: #4a6fa5;
+        }
+
+        .gm-prep {
+            margin-top: 1.5rem;
+        }
+
+        .prep-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .prep-card {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .prep-icon {
+            width: 50px;
+            height: 50px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .flexibility-tips {
+            margin-top: 2rem;
+        }
+
+        .tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .tip i {
+            font-size: 1.5rem;
+            color: #4a6fa5;
+            margin-top: 0.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .difficulty-levels, .abilities-grid, .adjustment-options,
+            .actions-grid, .prep-cards, .tips {
+                grid-template-columns: 1fr;
+            }
+
+            .time-target {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+
+    <section id="procedures">
+        <h2><i class="fas fa-clipboard-list"></i> Примеры процедур</h2>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-dice-d20"></i> Пример проверки навыка</h3>
+
+            <div class="skill-check-example">
+                <div class="scenario">
+                    <div class="scenario-icon">
+                        <i class="fas fa-question"></i>
+                    </div>
+                    <div class="scenario-content">
+                        <h4>Ситуация</h4>
+                        <p>Игрок осматривает старый сундук: "Я проверяю, нет ли ловушки".</p>
+                    </div>
+                </div>
+
+                <div class="gm-response">
+                    <div class="gm-icon">
+                        <i class="fas fa-hat-wizard"></i>
+                    </div>
+                    <div class="response-content">
+                        <h4>Действия ГМа</h4>
+                        <ol>
+                            <li>"Хорошо, бросьте проверку Perception или Investigation (в light-версии — Восприятие). DC среднее (15)."</li>
+                            <li>"Есть ли какие-то бонусы? Тёмная комната? Нет фонаря? Тогда помеха: бросок с помехой."</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="outcomes">
+                    <div class="outcome success">
+                        <div class="outcome-header">
+                            <i class="fas fa-check-circle"></i>
+                            <h5>Успех (≥15)</h5>
+                        </div>
+                        <p>"Ты замечаешь тонкую проволоку вдоль краёв сундука, очевидна ловушка."</p>
+                    </div>
+                    <div class="outcome failure">
+                        <div class="outcome-header">
+                            <i class="fas fa-times-circle"></i>
+                            <h5>Провал (<15)</h5>
+                        </div>
+                        <p>"Ты не замечаешь ничего особенного."</p>
+                        <p class="gm-note"><strong>Примечание ГМа:</strong> "Позже, если сундук откроется и сработает ловушка, я дам спасбросок Ловкости DC 13, чтобы увернуться."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-swords"></i> Пример боя</h3>
+
+            <div class="combat-example">
+                <div class="combat-phase">
+                    <div class="phase-number">1</div>
+                    <div class="phase-content">
+                        <h4>Инициатива</h4>
+                        <p>Все бросают d20 + DEX для определения порядка ходов</p>
+                    </div>
+                </div>
+
+                <div class="combat-phase">
+                    <div class="phase-number">2</div>
+                    <div class="phase-content">
+                        <h4>Ход игрока А</h4>
+                        <div class="player-action">
+                            <div class="action-dialog">
+                                <i class="fas fa-user"></i>
+                                <p>"Я нахожусь в 5 метрах от колдуньи. Хочу подбежать (движение) и атаковать мечом."</p>
+                            </div>
+                            <div class="gm-response">
+                                <i class="fas fa-hat-wizard"></i>
+                                <p>"Окей, бросай атаку: d20 + бонус атаки. Если попадёшь, дамажим 1d6."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combat-phase">
+                    <div class="phase-number">3</div>
+                    <div class="phase-content">
+                        <h4>Ход игрока Б</h4>
+                        <div class="player-action">
+                            <div class="action-dialog">
+                                <i class="fas fa-user"></i>
+                                <p>"Я стою дальше, стреляю из лука."</p>
+                            </div>
+                            <p class="mechanics">Аналогичный бросок атаки и урона</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combat-phase">
+                    <div class="phase-number">4</div>
+                    <div class="phase-content">
+                        <h4>Ход игрока В</h4>
+                        <div class="player-action">
+                            <div class="action-dialog">
+                                <i class="fas fa-user"></i>
+                                <p>"Я кидаю зелье, чтобы ослепить её."</p>
+                            </div>
+                            <div class="gm-response">
+                                <i class="fas fa-hat-wizard"></i>
+                                <p>"Какими заклинаниями/предметами владеешь?"</p>
+                            </div>
+                            <div class="action-dialog">
+                                <i class="fas fa-user"></i>
+                                <p>"Есть зелье ослепления: цель делает спасбросок CON DC 13, при провале промахивается на следующий ход."</p>
+                            </div>
+                            <div class="gm-response">
+                                <i class="fas fa-hat-wizard"></i>
+                                <p>"Бросай бросок атаки, чтобы попасть по колдунье зельем (или просто цель бросает спасбросок)."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="combat-phase">
+                    <div class="phase-number">5</div>
+                    <div class="phase-content">
+                        <h4>Ход NPC</h4>
+                        <p>"Колдунья контратакует: 'Я кидаю огненный шар по ближним.'"</p>
+                        <p class="mechanics">Бросок спасброска Ловкости DC 14: успешный - половина урона, провал - полный урон.</p>
+                    </div>
+                </div>
+
+                <div class="combat-summary">
+                    <p><strong>Повтор раундов</strong> до конца боя.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-comments"></i> Пример социального эпизода</h3>
+
+            <div class="social-example">
+                <div class="scene-setting">
+                    <div class="setting-icon">
+                        <i class="fas fa-campground"></i>
+                    </div>
+                    <div class="setting-content">
+                        <h4>Сцена</h4>
+                        <p>Игроки пытаются договориться с вождём племени о помощи.</p>
+                        <p><strong>Описание ГМа:</strong> "Вождь осторожен, но заинтересован в справедливости."</p>
+                    </div>
+                </div>
+
+                <div class="interaction-flow">
+                    <div class="interaction-step">
+                        <div class="step-header">
+                            <div class="step-number">1</div>
+                            <h5>Первая попытка убеждения</h5>
+                        </div>
+                        <div class="step-content">
+                            <div class="player-action">
+                                <i class="fas fa-user"></i>
+                                <p>"Я хочу убедить его, что мы можем помочь, рассказывая о наших достижениях."</p>
+                            </div>
+                            <div class="gm-response">
+                                <i class="fas fa-hat-wizard"></i>
+                                <p>"Брось Persuasion DC 14"</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interaction-step">
+                        <div class="step-header">
+                            <div class="step-number">2</div>
+                            <h5>Анализ реакции</h5>
+                        </div>
+                        <div class="step-content">
+                            <div class="gm-response">
+                                <i class="fas fa-hat-wizard"></i>
+                                <p>"Вождь заинтересован, задаёт уточняющие вопросы. Давай ещё один бросок Insight (DC 12), чтобы понять, что он скрывает сомнение."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="interaction-step">
+                        <div class="step-header">
+                            <div class="step-number">3</div>
+                            <h5>Корректировка подхода</h5>
+                        </div>
+                        <div class="step-content">
+                            <div class="player-action">
+                                <i class="fas fa-user"></i>
+                                <p>"Я предлагаю показать ему реальный артефакт как доказательство."</p>
+                            </div>
+                            <div class="gm-response">
+                                <i class="fas fa-hat-wizard"></i>
+                                <p>"Хорошая идея! Даю преимущество при следующей проверке Persuasion."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="outcomes">
+                        <div class="outcome success">
+                            <div class="outcome-header">
+                                <i class="fas fa-check-circle"></i>
+                                <h5>Успех</h5>
+                            </div>
+                            <p>"Вождь соглашается помочь: он даст вам 3 воинов в сопровождение."</p>
+                        </div>
+                        <div class="outcome failure">
+                            <div class="outcome-header">
+                                <i class="fas fa-times-circle"></i>
+                                <h5>Провал</h5>
+                            </div>
+                            <p>"Вождь не убеждён, но предлагает испытание: выполните задачу, докажите полезность, и тогда он рассмотрит ваше предложение."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="atmosphere">
+        <h2><i class="fas fa-theater-masks"></i> Управление атмосферой и вовлечение</h2>
+
+        <div class="rule-card">
+            <h3><i class="fas fa-magic"></i> Создание атмосферы</h3>
+
+            <div class="atmosphere-tips">
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-align-left"></i>
+                    </div>
+                    <div class="tip-content">
+                        <h4>Яркие, но краткие описания</h4>
+                        <p>"Вы входите в руины древнего храма: повсюду треснувшие колонны, пол покрыт пылью, слабый свет сквозит через пробоины в крыше."</p>
+                        <p class="tip-note">Избегайте долгих лекций - 1-2 предложения на локацию</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="tip-content">
+                        <h4>Используйте вопросы игрокам</h4>
+                        <p>"Что замечаете?" или "Каким образом вы подходите?"</p>
+                        <p class="tip-note">Стимулируйте творчество и вовлечённость</p>
+                    </div>
+                </div>
+
+                <div class="tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="tip-content">
+                        <h4>Поощряйте коммуникативность</h4>
+                        <p>Если ГМ не уверен в проверке, предложите:</p>
+                        <ul>
+                            <li>Insight - понять мотивы NPC</li>
+                            <li>Persuasion - убедить собеседника</li>
+                        </ul>
+                        <p class="tip-note">Используйте средний DC (12-14)</p>
+                    </div>
+                </div>
+
+                <div class="multimedia-tips">
+                    <h4><i class="fas fa-photo-video"></i> Мультимедийные элементы</h4>
+                    <div class="multimedia-grid">
+                        <div class="media-tip">
+                            <div class="media-icon">
+                                <i class="fas fa-music"></i>
+                            </div>
+                            <div class="media-content">
+                                <h5>Музыка и звуки</h5>
+                                <p>Простое фоновое аудио с телефона для атмосферы</p>
+                                <p class="media-note">Необязательно, но может усилить погружение</p>
+                            </div>
+                        </div>
+                        <div class="media-tip">
+                            <div class="media-icon">
+                                <i class="fas fa-map"></i>
+                            </div>
+                            <div class="media-content">
+                                <h5>Визуализация</h5>
+                                <p>Схематичные эскизы локаций или простые бумажные карты</p>
+                                <p class="media-note">Можно рисовать мелом на доске или листе</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* Стили для примеров процедур */
+        .skill-check-example {
+            margin-top: 1.5rem;
+        }
+
+        .scenario, .gm-response {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .scenario-icon, .gm-icon {
+            width: 50px;
+            height: 50px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .outcomes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .outcome {
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .outcome-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .outcome-header i {
+            font-size: 1.5rem;
+        }
+
+        .success {
+            background: #e8f5e9;
+            border-left: 4px solid #28a745;
+        }
+
+        .failure {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+
+        .gm-note {
+            margin-top: 1rem;
+            padding: 0.5rem;
+            background: rgba(0,0,0,0.05);
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* Стили для примера боя */
+        .combat-example {
+            margin-top: 1.5rem;
+        }
+
+        .combat-phase {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .phase-number {
+            width: 40px;
+            height: 40px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .player-action {
+            margin: 1rem 0;
+        }
+
+        .action-dialog, .gm-response {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-dialog i, .gm-response i {
+            color: #4a6fa5;
+            font-size: 1.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .mechanics {
+            padding: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+            margin: 0.5rem 0;
+            font-family: monospace;
+        }
+
+        .combat-summary {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #e3f2fd;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* Стили для социального примера */
+        .social-example {
+            margin-top: 1.5rem;
+        }
+
+        .scene-setting {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .setting-icon {
+            width: 50px;
+            height: 50px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .interaction-step {
+            margin-bottom: 2rem;
+            border-left: 3px solid #4a6fa5;
+            padding-left: 1.5rem;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Стили для управления атмосферой */
+        .atmosphere-tips {
+            margin-top: 1.5rem;
+        }
+
+        .tip-card {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .tip-icon {
+            width: 50px;
+            height: 50px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .tip-note {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .multimedia-tips {
+            margin-top: 2rem;
+        }
+
+        .multimedia-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .media-tip {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .media-icon {
+            width: 40px;
+            height: 40px;
+            background: #4a6fa5;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .media-note {
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .outcomes, .multimedia-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .scenario, .gm-response, .combat-phase, .scene-setting, .tip-card, .media-tip {
                 flex-direction: column;
             }
         }
